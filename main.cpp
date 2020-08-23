@@ -5,12 +5,10 @@ using namespace std;
 #include "Node.h"
 
 #include "TDAList.h"
-#include "TDAList.cpp"
 #include "TDAQueue.h"
 #include "TDAStack.h"
 
 #include "ArrayList.h"
-#include "ArrayList.cpp"
 #include "ArrayQueue.h"
 #include "ArrayStack.h"
 
