@@ -3,7 +3,7 @@
 
 #include "Object.h"
 
-class TDAList
+class TDAList : public Object
 {
 	public:
 		virtual bool inserta(int,Object*)=0;
@@ -26,6 +26,9 @@ class TDAList
 		
 		virtual int localiza(Object*)=0;
 		
+		virtual string toString();
+
+		virtual bool equals(Object*);
 		
 		
 	protected:

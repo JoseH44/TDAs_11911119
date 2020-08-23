@@ -1,7 +1,7 @@
 #include "ArrayList.h"
 
-ArrayList::ArrayList()
-{
+ArrayList::ArrayList(){
+	
 	capacity = 1024; //4096 bytes
 	n=0;
 	array = new Object*[capacity];
@@ -30,10 +30,12 @@ Object* ArrayList::suprime(int p){
 	{
 		Object* retValue;
 		retValue = array[p-1];//guarda el valor de retorno (p-1)
+		
 		for (int i = p; i <= n; i++)
 		{
 			array[i-1]=array[i];
 		}
+		array[n] = NULL;
 		n--;
 		return retValue;
 		
@@ -82,7 +84,7 @@ void ArrayList::imprime(){
 	
 	for (int i = 1; i <= n; i++)
 	{
-		cout<<array[i-1]<<" ";
+		cout<<array[i-1]->toString()<<endl;
 	}
 }
 

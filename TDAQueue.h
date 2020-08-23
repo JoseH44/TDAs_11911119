@@ -3,7 +3,7 @@
 
 #include "Object.h"
 
-class TDAQueue
+class TDAQueue : public Object
 {
 	public:
 		virtual Object* frente()=0;
@@ -11,7 +11,9 @@ class TDAQueue
 		virtual Object* quitaDeCola()=0;
 		virtual bool vacia()=0;
 		virtual void anula()=0;
-		virtual void imprime()=0;	
+		virtual void imprime()=0;
+		virtual string toString();
+		virtual bool equals(Object*);
 	protected:
 };
 

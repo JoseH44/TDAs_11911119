@@ -6,7 +6,9 @@
 class ArrayList : public TDAList
 {
 	public:
+		
 		ArrayList();
+
 		~ArrayList();
 		
 		virtual bool inserta(int,Object*);
@@ -35,6 +37,7 @@ class ArrayList : public TDAList
 		Object** array;
 		int capacity;
 		int n;
+
 };
 
 #endif

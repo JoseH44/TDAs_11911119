@@ -2,7 +2,8 @@
 #define OBJECT_H
 
 #include <iostream>
-using namespace std;
+using std::cout;
+using std::endl;
 
 #include <string>
 using std::string;

@@ -30,7 +30,7 @@ int LinkedList::localiza(Object* x){
 		//
 			//temp = temp.sig
 			
-	//return -1 --- el elemento no se encontró en la lista
+	//return -1 --- el elemento no se encontrï¿½ en la lista
 }
 
 //si  libera en c++ el contenido de la memoria de los elementos de la lista
@@ -48,7 +48,7 @@ bool LinkedList::vacia(){
 
 Object* LinkedList::recupera(int p){
 	//validar el rango de p
-	//si p es válido
+	//si p es vï¿½lido
 		//hops = p - 1 
 		//declarar temp = inicio para iterar
 		// for i = 1 to hops
@@ -70,7 +70,7 @@ Object* LinkedList::anterior(int p){
 
 Object* LinkedList::suprime(int p){
 	//validar el rango de p
-	//si p es válido
+	//si p es vï¿½lido
 		//hops = p - 1 
 		//declarar temp = inicio para iterar
 		// for i = 1 to hops
@@ -90,7 +90,7 @@ Object* LinkedList::suprime(int p){
 
 bool LinkedList::inserta(int p,Object* x){
 	//validar el rango de p
-	//si p es válido
+	//si p es vï¿½lido
 		//hops = p - 1 
 		//declarar temp = inicio para iterar
 		// for i = 1 to hops

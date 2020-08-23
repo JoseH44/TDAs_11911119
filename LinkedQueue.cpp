@@ -32,12 +32,12 @@ Object* LinkedQueue::quitaDeCola(){
 	//if !vacia
         //temp = frente apuntar el valor del frente de la cola 
         //retValue = temp->getData almacenar el valor del nodo 
-        //if temp.sig  validando que no sea el último nodo
+        //if temp.sig  validando que no sea el ï¿½ltimo nodo
             //temp.sig.ant = NULL 
             //frente = temp.sig
         //temp.siguiente =NULL
         //temp.data =NULL 
-        //Validando en caso que la cola quede vacía
+        //Validando en caso que la cola quede vacï¿½a
             //metodo clear 
         //else 
             //borra temp 

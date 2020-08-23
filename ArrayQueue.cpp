@@ -4,50 +4,90 @@ ArrayQueue::ArrayQueue()
 {
 	capacity = 1000;
 	array = new Object*[capacity];
-	Pfrente = final = 0;
+	Pfrente = auxiliar = final = 0;
 }
 
 Object* ArrayQueue::frente(){
-	//si no est� vac�a
-		//recuperar el valor de frente 
-		//retornar el valor
-	//else retornar nulo
+	
+	if (!vacia())
+	{
+		Object* retValue;
+		retValue = array[Pfrente];
+		return retValue;
+	}else{
+		return NULL;
+	}
+	
+
 }
 
 void ArrayQueue::poneEnCola(Object* x){
-	//validar si no est� llena
-		//insertar x en la posici�n final 
-		//incrementar final (calcular desbordamiento si existe)
-		//incrementar auxiliar
-	//else
-		//no hacer nada/mostar mensaje
+	
+	if (auxiliar<=capacity)
+	{
+		array[final] = x;//inserta x en la posición final de la cola
+		final++;
+		if (final >= capacity)//validación para manejar el desbordamiento
+		{
+			final = 0;
+		}
+		
+		auxiliar++;
+	}else{
+		cout<<endl<<"La Cola esta Llena"<<endl;
+	}
+	
+	
 }
 
 Object* ArrayQueue::quitaDeCola(){
-	//si no est� vac�a
-		//recuperar el valor de la casilla frente
-		//frente ++ 
-		//decrementar auxiliar
-		//retornar el valor recuperado
-		
-	//else return null
+	
+	if (!vacia())
+	{
+		Object* retValue;
+		retValue = array[Pfrente];
+		array[Pfrente] = NULL;
+		Pfrente++;
+		return retValue;
+	}else{
+		return NULL;
+	}
+	
 }
 
 void ArrayQueue::anula(){
-	//iterar las casillas desde frente hasta final y  borrar los datos (delete)
-	//while no est� vac�a
-		// temp = quitaDeCola()
-		//delete temp
-	//frente = final = 0
+	
+	while (!vacia())
+	{
+		Object* temp = quitaDeCola();
+		delete temp;
+	}
+	Pfrente = final = 0;
+	
 }
 
 bool ArrayQueue::vacia(){
-	return Pfrente == final;
+	return auxiliar == 0;
+	//Pfrente == final;
 }
 
 void ArrayQueue::imprime(){
-		//iterar las casillas desde frente hasta final e imprimir en pantalla 
-		//cada elemento
+		//iterar las casillas desde frente hasta final e imprimir en pantalla
+		int cont = 0;
+		cout<<endl;
+		while ((array[Pfrente]) && (cont<capacity))
+		{
+			cout<<array[Pfrente]->toString()<<" ";
+			Pfrente++;
+			
+			if (Pfrente >= capacity)//
+			{
+				Pfrente = 0;
+			}
+			cont++;
+			
+		}
+		
 }
 
 ArrayQueue::~ArrayQueue()
