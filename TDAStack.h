@@ -3,7 +3,7 @@
 
 #include "Object.h"
 
-class TDAStack
+class TDAStack : public Object
 {
 	public:
 		virtual void push(Object*)=0;
@@ -12,6 +12,9 @@ class TDAStack
 		virtual bool isEmpty()=0;
 		virtual void print()=0;
 		virtual void clear()=0;
+		virtual string toString();
+
+		virtual bool equals(Object*);
 	protected:
 };
 

@@ -16,8 +16,6 @@ using namespace std;
 #include "LinkedQueue.h"
 #include "LnkedStack.h"
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
-
 int main()
 {
 	//apuntadores a las diferentes TDAs
@@ -61,7 +59,7 @@ int main()
 				case 1:
 				{
 					//Lista = new ArrayList();
-					
+
 					break;
 				}
 				case 2:
@@ -77,12 +75,85 @@ int main()
 
 			break;
 		}
+		case 2:
+		{
+			int opcionSub = 0;
+			cout << endl
+				 << "--MENU PILAS--";
+			while (opcionSub != 3)
+			{
+				cout << endl
+					 << "1.Trabajar con ArrayStack"
+					 << endl
+					 << "2.Trabajar con LinkedStacked"
+					 << endl
+					 << "3.Regresar al Menu Principal"
+					 << endl
+					 << "Escoja una opcion: ";
+				cin >> opcionSub;
+				switch (opcionSub)
+				{
+				case 1:
+				{
+					break;
+				}
+
+				case 2:
+				{
+					break;
+				}
+
+				default:
+					break;
+				} //fin del switch del submenu de TDA PILA
+			}
+
+			break;
+		}
+		case 3:
+		{
+			int opcionSub = 0;
+			cout << endl
+				 << "--MENU COLAS--";
+			while (opcionSub != 3)
+			{
+				cout << endl
+					 << "1.Trabajar con ArrayQueue"
+					 << endl
+					 << "2.Trabajar con LinkedQueue"
+					 << endl
+					 << "3.Regresar al Menu Principal"
+					 << endl
+					 << "Escoja una opcion: ";
+				cin >> opcionSub;
+				switch (opcionSub)
+				{
+				case 1:
+				{
+					break;
+				}
+				case 2:
+				{
+					break;
+				}
+				case 3:
+				{
+					break;
+				}
+
+				default:
+					break;
+				}
+			}
+
+			break;
+		} //fin del switch de TDA COLA
 
 		default:
 			break;
-		}
+		} //fin del switch principal
 
-	} //fin del while
+	} //fin del while principal
 	cout << endl
 		 << "-----HASTA LUEGO-----";
 
