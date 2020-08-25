@@ -11,6 +11,7 @@ bool ArrayList::inserta(int p,Object* x){
 	
 	if (p>=1 && p<=n+1)
 	{
+		
 		for (int i = n + 1; i >= p; i--)
 			array[i] = array[i-1];
 		
@@ -69,10 +70,14 @@ Object* ArrayList::anterior(int p){
 
 int ArrayList::localiza(Object* x){
 	
-	for (int i = 1; i < n; i++)
+	for (int i = 1; i <= n; i++)
 	{
-		if (x->equals(array[i-1]))
+		if (x->equals(array[i-1])){
+			cout<<endl<<"Datos del Alumno Encontrado:"<<endl
+				<<array[i-1]->toString()<<endl;
 			return i;
+		}
+			
 	}
 
 	return -1;
@@ -105,6 +110,8 @@ void ArrayList::anula(){
 	
 	n = 0;
 }
+
+
 
 
 

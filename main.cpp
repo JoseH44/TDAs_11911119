@@ -4,11 +4,17 @@ using namespace std;
 #include "Object.h"
 #include "Node.h"
 
+#include "Alumno.h"
+#include "Alumno.cpp"
+#include "Simbolo.h"
+
 #include "TDAList.h"
+#include "TDAList.cpp"
 #include "TDAQueue.h"
 #include "TDAStack.h"
 
 #include "ArrayList.h"
+#include "ArrayList.cpp"
 #include "ArrayQueue.h"
 #include "ArrayStack.h"
 
@@ -22,6 +28,9 @@ int main()
 	TDAList *Lista;
 	TDAStack *Pila;
 	TDAQueue *Cola;
+	Object *alumno;
+
+	
 
 	int opcion = 0;
 	cout << "-----BIENVENIDO-----" << endl
@@ -58,22 +67,23 @@ int main()
 				{
 				case 1:
 				{
+					int posicion;
 					Lista = new ArrayList();
 					int opcionSub1 = 0;
 					string A_nombre;
 					int A_cuenta;
 
-					cout << endl
-						 << "--OPERACIONES DE LISTA--";
+					 
 					while (opcionSub1 != 10)
 					{
 						cout << endl
+						 	 << "--OPERACIONES DE LISTA--"<< endl
 							 << "1.Insertar Elemento" << endl
 							 << "2.Imprimir Elementos" << endl
 							 << "3.Buscar Elemento" << endl
 							 << "4.Borrar Elemento" << endl
 							 << "5.Ver si esta Vacia " << endl
-							 << "6.Obtener Elemento por Posición" << endl
+							 << "6.Obtener Elemento por Posicion" << endl
 							 << "7.Obtener Siguiente" << endl
 							 << "8.Obtener Anterior" << endl
 							 << "9.Borrar Todos los Elementos" << endl
@@ -84,14 +94,25 @@ int main()
 						{
 						case 1:
 						{
-							char respuesta = ' ';
-							while (respuesta != 'n' || respuesta != 'N')
+							int respuesta = -1;
+							while (respuesta != 0)
 							{
 								cout << endl << "Ingrese el Nombre del Alumno:" ;
 								cin >> A_nombre;
 								cout << endl << "Ingrese su Numero de Cuenta: ";
 								cin >> A_cuenta;
-								cout << endl << "Desea Introducir Otro Elemento[s/n]: ";
+								cout << endl << "Ingrese la Posicion en la que se Guardara: ";
+								cin >> posicion;
+
+								if (Lista->inserta(posicion,new Alumno(A_nombre,A_cuenta)))
+								{
+									cout<<endl<<"El Alumno fue Insertado Exitosamente!"<<endl;
+								}else{
+									cout<<endl<<"El Alumno no Fue Insertado"<<endl;
+								}
+								
+
+								cout << endl << "Desea Introducir Otro Elemento[1/0]: ";
 								cin >> respuesta;
 
 							}
@@ -100,34 +121,103 @@ int main()
 						}
 						case 2:
 						{
+							cout<<endl<<"Lista de Alumnos:"<<endl;
+							Lista->imprime();
 							break;
 						}
 						case 3:
 						{
+							int pos,cuenta_ref;
+							cout<<endl<<"Ingrese el Numero de Cuenta:";
+							cin >> cuenta_ref;
+							alumno = new Alumno(" ",cuenta_ref);
+							pos = Lista->localiza(alumno);
+							
+							if (pos != -1)
+							{
+								cout <<endl<<"El Alumno se encontro en la Posicion: "<<pos
+									 <<endl;
+							}else{
+								cout<<endl<<"El Alumno No fue Encontrado"<<endl;
+							}
+							
 							break;
 						}
 						case 4:
 						{
+							int posBusqueda;
+							cout<<endl<<"Ingrese la Posicion a Eliminar:";
+							cin >> posBusqueda;
+							if (alumno = Lista->suprime(posBusqueda))
+							{
+								cout <<endl<<"El Alumno fue Eliminado Exitosamente!"
+									 <<endl<<"Alumno Eliminado:" <<endl<<alumno->toString();
+							}else{
+								cout <<endl<<"El Alumno no fue Eliminado";
+							}
+							
 							break;
 						}
 						case 5:
 						{
+							if (Lista->vacia())
+							{
+								cout<<endl<<"La lista Esta Vacia"<<endl;
+							}else{
+								cout<<endl<<"La lista No Esta Vacia"<<endl<<
+									"Tiene "<<endl;
+							}
+							
 							break;
 						}
 						case 6:
 						{
+							int posBusqueda;
+							cout<<endl<<"Ingrese la Posicion a Obtener:";
+							cin >> posBusqueda;
+							if (alumno = Lista->recupera(posBusqueda))
+							{
+								cout<<endl<<"Alumno Recuperado:"<<endl
+								  	<<alumno->toString()<<endl;
+								
+							}else{
+								cout<<endl<<"Posicion no Valida"<<endl;
+							}
+							
 							break;
 						}
 						case 7:
 						{
+							int posBusqueda;
+							cout<<endl<<"Ingrese la Posicion:";
+							cin >> posBusqueda;
+							if (alumno = Lista->siguiente(posBusqueda))
+							{
+								cout<<endl<<"Alumno en la Posicion Siguiente:"<<endl
+								  	<<alumno->toString()<<endl;
+							}else{
+								cout<<endl<<"La Siguiente Posicion Esta Vacia"<<endl;
+							}
+							
 							break;
 						}
 						case 8:
 						{
+							int posBusqueda;
+							cout<<endl<<"Ingrese la Posicion:";
+							cin >> posBusqueda;
+							if (alumno = Lista->anterior(posBusqueda))
+							{
+								cout<<endl<<"Alumno en la Posicion Anterior:"<<endl
+								  	<<alumno->toString()<<endl;
+							}else{
+								cout<<endl<<"La Posicion Anterior Esta Vacia"<<endl;
+							}
 							break;
 						}
 						case 9:
 						{
+							Lista->anula();
 							break;
 						}
 
@@ -237,5 +327,6 @@ int main()
 	delete Lista;
 	delete Pila;
 	delete Cola;
+	delete alumno;
 	return 0;
 }

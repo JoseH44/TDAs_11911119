@@ -30,6 +30,8 @@ class ArrayList : public TDAList
 		virtual Object* primero();
 		
 		virtual int localiza(Object*);
+
+		
 		
 		
 		
