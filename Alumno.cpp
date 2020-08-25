@@ -16,7 +16,7 @@ bool Alumno::equals(Object *otro)
     }
     else
     {
-        cout<<"ENTROOO";
+        
         return false;
     }
 }
@@ -33,7 +33,7 @@ string Alumno::getNombre()
 
 string Alumno::toString()
 {
-    return "Nombre: " + nombre + "\n" + "N Cuenta: " + to_string(num_cuenta);
+    return "Nombre: " + nombre + "\n" + "N Cuenta: " + std::to_string(num_cuenta);
 }
 
 Alumno::~Alumno()

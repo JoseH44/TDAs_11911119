@@ -7,16 +7,21 @@ using namespace std;
 #include "Alumno.h"
 #include "Alumno.cpp"
 #include "Simbolo.h"
+#include "Simbolo.cpp"
 
 #include "TDAList.h"
 #include "TDAList.cpp"
 #include "TDAQueue.h"
+#include "TDAQueue.cpp"
 #include "TDAStack.h"
+#include "TDAStack.cpp"
 
 #include "ArrayList.h"
 #include "ArrayList.cpp"
 #include "ArrayQueue.h"
+#include "ArrayQueue.cpp"
 #include "ArrayStack.h"
+#include "ArrayStack.cpp"
 
 #include "LinkedList.h"
 #include "LinkedQueue.h"
@@ -29,21 +34,22 @@ int main()
 	TDAStack *Pila;
 	TDAQueue *Cola;
 	Object *alumno;
+	Object *simbolo;
 
 	
 
 	int opcion = 0;
 	cout << "-----BIENVENIDO-----" << endl
-		 << endl;
+		<< endl;
 	while (opcion != 4)
 	{
 		cout << endl
-			 << "--MENU PRINCIPAL--" << endl
-			 << "1.Trabajar con Listas" << endl
-			 << "2.Trabajar con Pilas" << endl
-			 << "3.Trabajar con Colas" << endl
-			 << "4.Salir" << endl
-			 << "Escoja una opcion: ";
+			<< "--MENU PRINCIPAL--" << endl
+			<< "1.Trabajar con Listas" << endl
+			<< "2.Trabajar con Pilas" << endl
+			<< "3.Trabajar con Colas" << endl
+			<< "4.Salir" << endl
+			<< "Escoja una opcion: ";
 		cin >> opcion;
 
 		switch (opcion)
@@ -52,16 +58,16 @@ int main()
 		{
 			int opcionSub = 0;
 			cout << endl
-				 << "--MENU LISTAS--";
+				<< "--MENU LISTAS--";
 			while (opcionSub != 3)
 			{
 				cout << endl
-					 << "1.Trabajar con ArrayList"
-					 << endl
-					 << "2.Trabajar con Linked List" << endl
-					 << "3.Regresar al Menu Principal"
-					 << endl
-					 << "Escoja una opcion: ";
+					<< "1.Trabajar con ArrayList"
+					<< endl
+					<< "2.Trabajar con Linked List" << endl
+					<< "3.Regresar al Menu Principal"
+					<< endl
+					<< "Escoja una opcion: ";
 				cin >> opcionSub;
 				switch (opcionSub)
 				{
@@ -77,18 +83,18 @@ int main()
 					while (opcionSub1 != 10)
 					{
 						cout << endl
-						 	 << "--OPERACIONES DE LISTA--"<< endl
-							 << "1.Insertar Elemento" << endl
-							 << "2.Imprimir Elementos" << endl
-							 << "3.Buscar Elemento" << endl
-							 << "4.Borrar Elemento" << endl
-							 << "5.Ver si esta Vacia " << endl
-							 << "6.Obtener Elemento por Posicion" << endl
-							 << "7.Obtener Siguiente" << endl
-							 << "8.Obtener Anterior" << endl
-							 << "9.Borrar Todos los Elementos" << endl
-							 << "10.Regresar al Menu" << endl
-							 << "Escoja una opcion: ";
+						 	<< "--OPERACIONES DE LISTA--"<< endl
+							<< "1.Insertar Elemento" << endl
+							<< "2.Imprimir Elementos" << endl
+							<< "3.Buscar Elemento" << endl
+							<< "4.Borrar Elemento" << endl
+							<< "5.Ver si esta Vacia " << endl
+							<< "6.Obtener Elemento por Posicion" << endl
+							<< "7.Obtener Siguiente" << endl
+							<< "8.Obtener Anterior" << endl
+							<< "9.Borrar Todos los Elementos" << endl
+							<< "10.Regresar al Menu" << endl
+							<< "Escoja una opcion: ";
 						cin >> opcionSub1;
 						switch (opcionSub1)
 						{
@@ -136,7 +142,7 @@ int main()
 							if (pos != -1)
 							{
 								cout <<endl<<"El Alumno se encontro en la Posicion: "<<pos
-									 <<endl;
+									<<endl;
 							}else{
 								cout<<endl<<"El Alumno No fue Encontrado"<<endl;
 							}
@@ -151,7 +157,7 @@ int main()
 							if (alumno = Lista->suprime(posBusqueda))
 							{
 								cout <<endl<<"El Alumno fue Eliminado Exitosamente!"
-									 <<endl<<"Alumno Eliminado:" <<endl<<alumno->toString();
+									<<endl<<"Alumno Eliminado:" <<endl<<alumno->toString();
 							}else{
 								cout <<endl<<"El Alumno no fue Eliminado";
 							}
@@ -218,6 +224,7 @@ int main()
 						case 9:
 						{
 							Lista->anula();
+							cout<<endl<<"Elementos Borrados de la Lista"<<endl;
 							break;
 						}
 
@@ -243,24 +250,91 @@ int main()
 		}
 		case 2:
 		{
-			int opcionSub = 0;
-			cout << endl
-				 << "--MENU PILAS--";
+			int opcionSub = 0; 
 			while (opcionSub != 3)
 			{
 				cout << endl
-					 << "1.Trabajar con ArrayStack"
-					 << endl
-					 << "2.Trabajar con LinkedStacked"
-					 << endl
-					 << "3.Regresar al Menu Principal"
-					 << endl
-					 << "Escoja una opcion: ";
+				 	<< "--MENU PILAS--"<< endl
+					<< "1.Trabajar con ArrayStack"
+					<< endl
+					<< "2.Trabajar con LinkedStacked"
+					<< endl
+					<< "3.Regresar al Menu Principal"
+					<< endl
+					<< "Escoja una opcion: ";
 				cin >> opcionSub;
 				switch (opcionSub)
 				{
 				case 1:
 				{
+					Pila = new ArrayStack();
+					int opcionSub1 = 0;
+					while (opcionSub1 != 6)
+					{
+						cout<<endl<<"--OPERACIONES DE PILA--"<<endl
+							<<"1.Empujar(Push)"<<endl<<"2.Sacar(Pop)"
+							<<endl<<"3.Ver Tope(Top)"<<endl<<"4.Verificar si est vacia"
+							<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
+							<<endl<<"Escoja una opcion: ";
+						cin >> opcionSub1;
+						switch (opcionSub1)
+						{
+						case 1:{
+							char simbolo_entrada;
+							cout<<"Ingrese un Simbolo para Empujar a la Pila:";
+							cin >> simbolo_entrada;
+							Pila->push(new Simbolo(simbolo_entrada));
+							cout<<"Simbolo Empujado Exitosamente"<<endl;
+							break;
+						}
+						case 2:{
+							if (simbolo = Pila->pop())
+							{
+								cout<<endl<<"Elemento Sacado:"<<endl;
+								cout<<simbolo->toString();
+							}else
+							{
+								cout<<endl<<"No hay Elementos en la Pila";
+							}
+							
+							
+							break;
+						}
+						case 3:{
+							if (simbolo = Pila->top())
+							{
+								cout<<endl<<"Elemento en el Tope:"<<endl;
+								cout<<simbolo->toString();
+							}else
+							{
+								cout<<endl<<"No hay Elementos en la Pila";
+							}
+							
+							break;
+						}
+						case 4:{
+							if (Pila->isEmpty())
+							{
+								cout<<endl<<"Esta Vacia"<<endl;
+							}else
+							{
+								cout<<endl<<"No esta Vacia"<<endl;
+							}
+							
+							
+							break;
+						}
+						case 5:{
+							cout<<endl<<"Elementos en la Pila:"<<endl<<endl;
+							Pila->print();
+							break;
+						}
+						
+						default:
+							break;
+						}//switch de las operaciones de pila
+					}
+					
 					break;
 				}
 
@@ -279,23 +353,101 @@ int main()
 		case 3:
 		{
 			int opcionSub = 0;
-			cout << endl
-				 << "--MENU COLAS--";
+			cout ;
 			while (opcionSub != 3)
 			{
 				cout << endl
-					 << "1.Trabajar con ArrayQueue"
-					 << endl
-					 << "2.Trabajar con LinkedQueue"
-					 << endl
-					 << "3.Regresar al Menu Principal"
-					 << endl
-					 << "Escoja una opcion: ";
+					<< "--MENU COLAS--"
+					<<endl
+					<< "1.Trabajar con ArrayQueue"
+					<< endl
+					<< "2.Trabajar con LinkedQueue"
+					<< endl
+					<< "3.Regresar al Menu Principal"
+					<< endl
+					<< "Escoja una opcion: ";
 				cin >> opcionSub;
 				switch (opcionSub)
 				{
 				case 1:
 				{
+					string A_nombre;
+					int A_cuenta;
+					int opcionSub1 = 0;
+					Cola = new ArrayQueue();
+					while (opcionSub1 != 6)
+					{
+						cout<<endl<<"--OPERACIONES DE COLAS--"<<endl
+							<<"1.Encolar(Queue) "<<endl<<"2.Desencolar(Dequeue) "
+							<<endl<<"3.Ver Tope(Peek) "<<endl<<"4.Verificar si esta vacia"
+							<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
+							<<endl<<"Escoja una opcion: ";
+						cin >> opcionSub1;
+						switch (opcionSub1)
+						{
+						case 1:{
+							cout << endl << "Ingrese el Nombre del Alumno:" ;
+							cin >> A_nombre;
+							cout << endl << "Ingrese su Numero de Cuenta: ";
+							cin >> A_cuenta;
+							Cola->poneEnCola(new Alumno(A_nombre,A_cuenta));
+							cout<<endl<<"Alumno Puesto en Cola Exitosamente!"<<endl;
+							break;
+						}
+						case 2:{
+							if (alumno = Cola->quitaDeCola())
+							{
+								cout<<endl<<"Elemento Sacado de la Cola:"<<endl
+									<<alumno->toString()<<endl;
+							}else
+							{
+								cout<<endl<<"No hay Elementos en la Cola"<<endl;
+							}
+							
+							
+							break;
+						}
+						case 3:{
+							if (alumno = Cola->frente())
+							{
+								cout<<endl<<"Elemento en el Frente de la Cola:"<<endl
+									<<alumno->toString()<<endl;
+
+							}else
+							{
+								cout<<endl<<"No hay Elementos en la Cola"<<endl;
+
+							}
+							
+							
+							break;
+						}
+						case 4:{
+							if (Cola->vacia())
+							{
+								cout<<endl<<"La Cola Esta Vacia"<<endl;
+								
+							}else
+							{
+								cout<<endl<<"La Cola No Esta Vacia"<<endl;
+
+							}
+							
+							
+							break;
+						}
+						case 5:{
+							cout<<endl<<"Elementos en la Cola:"<<endl;
+							Cola->imprime();
+							cout<<"aaaaver";
+							break;
+						}
+						
+						default:
+							break;
+						}//switch de las operaciones de cola
+					}
+					
 					break;
 				}
 				case 2:
@@ -328,5 +480,6 @@ int main()
 	delete Pila;
 	delete Cola;
 	delete alumno;
+	delete simbolo;
 	return 0;
 }

@@ -18,10 +18,20 @@ bool Simbolo::equals(Object *otro)
     }
 }
 
+char Simbolo::getSimbolo(){
+    return simbolo;
+}
+
+void Simbolo::setSimbolo(char pSimbolo){
+    simbolo =   pSimbolo;
+}
+
+
 string Simbolo::toString()
 {
-    cout << endl
-         << "Simbolo: " << simbolo << endl;
+    
+    std::string s(1,simbolo);
+    return "Simbolo: " + s;
 }
 
 Simbolo::~Simbolo()

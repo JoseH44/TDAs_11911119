@@ -72,21 +72,23 @@ bool ArrayQueue::vacia(){
 }
 
 void ArrayQueue::imprime(){
-		//iterar las casillas desde frente hasta final e imprimir en pantalla
-		int cont = 0;
-		cout<<endl;
-		while ((array[Pfrente]) && (cont<capacity))
+	//iterar las casillas desde frente hasta final e imprimir en pantalla
+	int cont = 0;
+	cout<<endl;
+	while ((array[Pfrente]) && (cont<capacity))
+	{
+		cout<<array[Pfrente]->toString()<<endl;
+		Pfrente++;
+			
+		if (Pfrente >= capacity)//
 		{
-			cout<<array[Pfrente]->toString()<<" ";
-			Pfrente++;
-			
-			if (Pfrente >= capacity)//
-			{
-				Pfrente = 0;
-			}
-			cont++;
-			
+			Pfrente = 0;
 		}
+		cont++;
+
+		cout<<"Prueba1";				
+	}
+	cout<<"Prueba2";
 		
 }
 

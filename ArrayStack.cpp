@@ -37,6 +37,7 @@ void ArrayStack::print(){
 	
 	for (int i = tope-1; i >= 0; i--)
 	{
+		
 		cout<<array[i]->toString()<<endl;//imprime el contenido de la casilla i del array
 	}
 }

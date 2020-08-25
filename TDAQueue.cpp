@@ -1,7 +1,7 @@
 #include "TDAQueue.h"
 
 string TDAQueue::toString(){
-    cout<<"TDA QUEUE";
+    return "TDAQueue";
 }
 
 

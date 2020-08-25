@@ -10,7 +10,7 @@ LDFLAGS =
 # Makefile settings - Can be customized.
 APPNAME = myapp
 EXT = .cpp .h
-SRCDIR = C:\Users\jrdjh\Desktop\Programación\Estructura Datos I\TDAs_11911119>
+SRCDIR = C:\Users\jrdjh\Desktop\Programación\Estructura _Datos _I\TDAs_11911119
 OBJDIR = obj
 
 ############## Do not change anything from here downwards! #############

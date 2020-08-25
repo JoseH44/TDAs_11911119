@@ -26,7 +26,7 @@ void LnkedStack::clear(){
 
 
 bool LnkedStack::isEmpty(){
-	return top == NULL;
+	return Ntop == NULL;
 }
 
 Object* LnkedStack::top(){
