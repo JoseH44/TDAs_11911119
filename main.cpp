@@ -58,7 +58,83 @@ int main()
 				{
 				case 1:
 				{
-					//Lista = new ArrayList();
+					Lista = new ArrayList();
+					int opcionSub1 = 0;
+					string A_nombre;
+					int A_cuenta;
+
+					cout << endl
+						 << "--OPERACIONES DE LISTA--";
+					while (opcionSub1 != 10)
+					{
+						cout << endl
+							 << "1.Insertar Elemento" << endl
+							 << "2.Imprimir Elementos" << endl
+							 << "3.Buscar Elemento" << endl
+							 << "4.Borrar Elemento" << endl
+							 << "5.Ver si esta Vacia " << endl
+							 << "6.Obtener Elemento por Posición" << endl
+							 << "7.Obtener Siguiente" << endl
+							 << "8.Obtener Anterior" << endl
+							 << "9.Borrar Todos los Elementos" << endl
+							 << "10.Regresar al Menu" << endl
+							 << "Escoja una opcion: ";
+						cin >> opcionSub1;
+						switch (opcionSub1)
+						{
+						case 1:
+						{
+							char respuesta = ' ';
+							while (respuesta != 'n' || respuesta != 'N')
+							{
+								cout << endl << "Ingrese el Nombre del Alumno:" ;
+								cin >> A_nombre;
+								cout << endl << "Ingrese su Numero de Cuenta: ";
+								cin >> A_cuenta;
+								cout << endl << "Desea Introducir Otro Elemento[s/n]: ";
+								cin >> respuesta;
+
+							}
+							
+							break;
+						}
+						case 2:
+						{
+							break;
+						}
+						case 3:
+						{
+							break;
+						}
+						case 4:
+						{
+							break;
+						}
+						case 5:
+						{
+							break;
+						}
+						case 6:
+						{
+							break;
+						}
+						case 7:
+						{
+							break;
+						}
+						case 8:
+						{
+							break;
+						}
+						case 9:
+						{
+							break;
+						}
+
+						default:
+							break;
+						} //switch de las opciones de las operaciones de lista
+					}	  //while de las opciones de las operaciones de lista
 
 					break;
 				}
