@@ -39,4 +39,3 @@ TDAQueue.o:	TDAQueue.h TDAQueue.cpp
 
 TDAStack.o:	TDAStack.h TDAStack.cpp 
 	g++ TDAStack.cpp
-
