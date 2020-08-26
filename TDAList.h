@@ -26,9 +26,9 @@ class TDAList : public Object
 		
 		virtual int localiza(Object*)=0;
 		
-		//virtual string toString();
+		virtual string toString()=0;
 
-		//virtual bool equals(Object*);
+		virtual bool equals(Object*)=0;
 		
 		
 	protected:
