@@ -1,5 +1,4 @@
-#ifndef ALUMNO_H
-#define ALUMNO_H
+#pragma once
 
 #include <string>
 using std::string;
@@ -11,7 +10,6 @@ class Alumno : public Object
 private:
     int num_cuenta;
     string nombre;
-
 public:
     Alumno();
     Alumno(string, int);
@@ -23,4 +21,4 @@ public:
     ~Alumno();
 };
 
-#endif
+//#endif
