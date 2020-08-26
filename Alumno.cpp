@@ -21,11 +21,6 @@ string Alumno::getNombre()
 }
 
 
-int Alumno::getCuenta()
-{
-    return num_cuenta;
-}
-
 string Alumno::toString()
 {
     return "Nombre: " + nombre + "\n" + "N Cuenta: " + std::to_string(num_cuenta);
