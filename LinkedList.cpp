@@ -31,6 +31,9 @@ int LinkedList::localiza(Object* x){
 			//temp = temp.sig
 			
 	//return -1 --- el elemento no se encontr� en la lista
+
+	//BORRAR
+	return 0;
 }
 
 //si  libera en c++ el contenido de la memoria de los elementos de la lista
@@ -86,6 +89,9 @@ Object* LinkedList::suprime(int p){
 		//retornar retValue
 	//else
 		//retorna null
+	
+	//BORRAR
+	return nullptr;
 }
 
 bool LinkedList::inserta(int p,Object* x){

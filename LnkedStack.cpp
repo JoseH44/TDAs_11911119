@@ -34,6 +34,9 @@ Object* LnkedStack::top(){
 		//return null
 	//else
 		//return top.data
+	
+	//BORRAR
+	return nullptr;
 }
 
 Object* LnkedStack::pop(){
@@ -49,6 +52,8 @@ Object* LnkedStack::pop(){
 		//delete temp
 		//return reValue
 		
+	//BORRAR
+	return nullptr;
 } 
 
 void LnkedStack::push(Object* x){
