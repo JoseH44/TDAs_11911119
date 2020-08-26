@@ -35,6 +35,8 @@ class LinkedList : public TDAList
 
 		virtual bool equals(Object*);
 
+		virtual int getN();
+
 		
 		
 	protected:

@@ -170,7 +170,7 @@ int main()
 								cout<<endl<<"La lista Esta Vacia"<<endl;
 							}else{
 								cout<<endl<<"La lista No Esta Vacia"<<endl<<
-									"Tiene "<<endl;
+									"Tiene "<<Lista->getN()<<" Elementos"<<endl;
 							}
 							
 							break;
@@ -246,7 +246,7 @@ int main()
 					 
 					while (opcionSub1 != 10)
 					{
-						cout << endl
+						cout << endl << endl
 						 	<< "--OPERACIONES DE LISTA--"<< endl
 							<< "1.Insertar Elemento" << endl
 							<< "2.Imprimir Elementos" << endl
@@ -335,7 +335,7 @@ int main()
 								cout<<endl<<"La lista Esta Vacia"<<endl;
 							}else{
 								cout<<endl<<"La lista No Esta Vacia"<<endl<<
-									"Tiene "<<endl;
+									"Tiene "<<Lista->getN()<<" Elemento(s)"<<endl;
 							}
 							
 							break;
@@ -361,13 +361,20 @@ int main()
 							int posBusqueda;
 							cout<<endl<<"Ingrese la Posicion:";
 							cin >> posBusqueda;
-							if (alumno = Lista->siguiente(posBusqueda))
+							if (posBusqueda == 0)
 							{
+								cout<<endl<<"La Lista Empieza en el Numero 1"<<endl;
+							}else{
+								if (alumno = Lista->siguiente(posBusqueda))
+								{
 								cout<<endl<<"Alumno en la Posicion Siguiente:"<<endl
 								  	<<alumno->toString()<<endl;
-							}else{
+								}else{
 								cout<<endl<<"La Siguiente Posicion Esta Vacia"<<endl;
+								}
 							}
+							
+							
 							
 							break;
 						}

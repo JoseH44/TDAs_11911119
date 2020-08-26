@@ -37,7 +37,10 @@ class ArrayList : public TDAList
 
 		virtual string toString();
 
-		virtual bool equals(Object*);							
+		virtual bool equals(Object*);
+
+		virtual int getN();
+
 
 };
 

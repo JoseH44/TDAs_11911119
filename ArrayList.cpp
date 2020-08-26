@@ -118,7 +118,9 @@ bool ArrayList::equals(Object* object){
 	return false;
 }
 
-
+int ArrayList::getN(){
+	return n;
+}
 
 ArrayList::~ArrayList()
 {

@@ -28,7 +28,9 @@ class TDAList : public Object
 		
 		virtual string toString()=0;
 
-		virtual bool equals(Object*)=0;					
+		virtual bool equals(Object*)=0;
+
+		virtual int getN()=0;					
 };
 
 #endif

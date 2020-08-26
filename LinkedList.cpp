@@ -18,7 +18,15 @@ void LinkedList::imprime(){
 	//declarar temp = inicio para iterar
 	// for i = 1 to hops
 		//print temp.data
-		//temp = temp.sig	
+		//temp = temp.sig
+
+	Node* temporal = inicio;
+	for (int i = 0; i < n; i++)	{
+		cout<<endl<<temporal->getData()->toString()<<endl;
+		temporal = temporal->getSiguiente();
+	}
+	
+
 }
 
 int LinkedList::localiza(Object* x){
@@ -33,7 +41,18 @@ int LinkedList::localiza(Object* x){
 	//return -1 --- el elemento no se encontr� en la lista
 
 	//BORRAR
-	return 0;
+	Node* temporal = inicio;
+	for (int i = 0; i < n; i++)	{
+		if (temporal->getData()->equals(x)){
+			return i + 1;
+		}else{
+			temporal = temporal->getSiguiente();
+		}
+	}
+	return -1;
+	
+
+
 }
 
 //si  libera en c++ el contenido de la memoria de los elementos de la lista
@@ -58,11 +77,34 @@ Object* LinkedList::recupera(int p){
 			//temp = temp.sig
 		//return temp.data temp->getData()
 	//else
+		//return NULL;
+
+
+	//revisar 
+
+	if (p>= 1 && p <= n){
+		
+		Node* temporal = inicio;
+		for (int i = 0; i < p-1; i++){
+			
+			temporal = temporal->getSiguiente();
+		}
+		Object* retValue;
+		retValue = temporal->getData();
+		//return temporal->getData();
+		return retValue;
+
+	}else{
 		return NULL;
+	}
+	
+
+
 }
 
 
 Object* LinkedList::siguiente(int p) {
+	//revisar
 		return recupera(p+1);	
 	}
 	
@@ -90,8 +132,29 @@ Object* LinkedList::suprime(int p){
 	//else
 		//retorna null
 	
-	//BORRAR
-	return nullptr;
+
+	//revisar
+
+	if (p>=1 && p<=n){
+		Node* temporal = inicio;
+		for (int i = 1; i <= p-1; i++){
+			temporal = temporal->getSiguiente();
+		}
+		temporal->getAnterior()->setSiguiente(temporal->getSiguiente());
+		temporal->getSiguiente()->setAnterior(temporal->getAnterior());
+		temporal->setAnterior(NULL);
+		temporal->setSiguiente(NULL);
+		n--;
+		Object* retvalue;
+		retvalue = temporal->getData();
+		temporal->setData(NULL);
+		//delete temporal;
+		return retvalue;
+
+	}else{
+		return NULL;
+	}
+	
 }
 
 bool LinkedList::inserta(int p,Object* x){
@@ -151,7 +214,9 @@ bool LinkedList::equals(Object* x){
 }	
 
 
-
+int LinkedList::getN(){
+	return n;
+}
 
 
 LinkedList::~LinkedList()
