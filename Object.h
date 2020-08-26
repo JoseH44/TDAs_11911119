@@ -12,8 +12,7 @@ class Object
 {
 	public:
 		virtual string toString()=0;
-		virtual bool equals(Object*)=0;
-	protected:
+		virtual bool equals(Object*)=0;	
 };
 
 #endif

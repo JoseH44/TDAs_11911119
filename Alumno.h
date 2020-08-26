@@ -14,7 +14,6 @@ private:
 
 public:
     Alumno();
-
     Alumno(string, int);
     int getCuenta();
     string getNombre();

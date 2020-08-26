@@ -1,28 +1,13 @@
 #include "Alumno.h"
 
-Alumno::Alumno(string pNombre, int pCuenta)
-{
-    nombre = pNombre;
-    num_cuenta = pCuenta;
-}
-
 Alumno::Alumno(){
     
 }
 
-bool Alumno::equals(Object *otro)
+Alumno::Alumno(string pNombre, int pCuenta)
 {
-    Alumno *ref = dynamic_cast<Alumno *>(otro);
-    if (ref)
-    {
-        
-        return num_cuenta == ref->getCuenta();
-    }
-    else
-    {
-        
-        return false;
-    }
+    nombre = pNombre;
+    num_cuenta = pCuenta;
 }
 
 int Alumno::getCuenta()
@@ -38,6 +23,21 @@ string Alumno::getNombre()
 string Alumno::toString()
 {
     return "Nombre: " + nombre + "\n" + "N Cuenta: " + std::to_string(num_cuenta);
+}
+
+bool Alumno::equals(Object *otro)
+{
+    Alumno *ref = dynamic_cast<Alumno *>(otro);
+    if (ref)
+    {
+        
+        return num_cuenta == ref->getCuenta();
+    }
+    else
+    {
+        
+        return false;
+    }
 }
 
 Alumno::~Alumno()
