@@ -1,5 +1,5 @@
-run.o:	main.o Alumno.o ArrayList.o ArrayQueue.o ArrayStack.o LinkedList.o LinkedQueue.o LnkedStack.o Node.o Simbolo.o TDAList.o TDAQueue.o TDAStack.o
-	g++ main.o Alumno.o ArrayList.o ArrayQueue.o ArrayStack.o LinkedList.o LinkedQueue.o LnkedStack.o Node.o Simbolo.o TDAList.o TDAQueue.o TDAStack.o -o run
+run.o:	main.o Alumno.o ArrayList.o ArrayQueue.o ArrayStack.o LinkedList.o LinkedQueue.o LnkedStack.o Node.o Simbolo.o TDAQueue.o TDAStack.o
+	g++ main.o Alumno.o ArrayList.o ArrayQueue.o ArrayStack.o LinkedList.o LinkedQueue.o LnkedStack.o Node.o Simbolo.o TDAQueue.o TDAStack.o -o run
 
 main.o:	main.cpp
 	g++ main.cpp
