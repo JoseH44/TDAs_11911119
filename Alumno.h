@@ -3,7 +3,7 @@
 #define ALUMNO_H
 
 #include <string>
-using std::string;
+
 
 #include "Object.h"
 
