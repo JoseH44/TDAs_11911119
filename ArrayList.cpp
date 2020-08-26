@@ -111,7 +111,13 @@ void ArrayList::anula(){
 	n = 0;
 }
 
+string ArrayList::toString(){
+	return "TDA";
+}
 
+bool ArrayList::equals(Object* object){
+	return false;
+}
 
 
 

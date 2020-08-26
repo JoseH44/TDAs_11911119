@@ -31,7 +31,9 @@ class ArrayList : public TDAList
 		
 		virtual int localiza(Object*);
 
-		
+		virtual string toString();
+
+		virtual bool equals(Object*);
 		
 		
 		
