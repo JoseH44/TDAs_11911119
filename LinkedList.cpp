@@ -143,7 +143,7 @@ bool LinkedList::inserta(int p,Object* x){
 
 
 string LinkedList::toString(){
-	return " ";
+	return "LINKEDLIST";
 }
 
 bool LinkedList::equals(Object* x){

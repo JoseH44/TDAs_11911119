@@ -47,6 +47,7 @@ Object* ArrayQueue::quitaDeCola(){
 		Object* retValue;
 		retValue = array[Pfrente];
 		array[Pfrente] = NULL;
+		
 		Pfrente++;
 		return retValue;
 	}else{

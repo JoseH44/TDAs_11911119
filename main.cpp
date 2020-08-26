@@ -631,7 +631,7 @@ int main()
 
 	} //fin del while principal
 	cout << endl
-		 << "-----HASTA LUEGO-----";
+		 << "-----HASTA LUEGO-----"<<endl;
 
 	//deletes de los punteros
 	
