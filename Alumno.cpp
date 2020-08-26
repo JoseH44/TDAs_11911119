@@ -3,7 +3,7 @@
 Alumno::Alumno(){
     
 }
-/*
+
 Alumno::Alumno(string pNombre, int pCuenta)
 {
     nombre = pNombre;
@@ -19,7 +19,7 @@ string Alumno::getNombre()
 {
     return nombre;
 }
-*/
+
 
 int Alumno::getCuenta()
 {

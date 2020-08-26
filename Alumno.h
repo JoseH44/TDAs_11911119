@@ -14,10 +14,10 @@ private:
     string nombre;
 public:
     Alumno();
-    /*Alumno(string, int);
+    Alumno(string, int);
     
     string getNombre();
-    */
+    
     int getCuenta();
     virtual string toString();
     virtual bool equals(Object *);
