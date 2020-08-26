@@ -137,7 +137,7 @@ Object* LinkedList::suprime(int p){
 
 	if (p>=1 && p<=n){
 		Node* temporal = inicio;
-		for (int i = 1; i <= p-1; i++){
+		for (int i = 0; i < p-1; i++){
 			temporal = temporal->getSiguiente();
 		}
 		temporal->getAnterior()->setSiguiente(temporal->getSiguiente());

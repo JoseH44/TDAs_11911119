@@ -196,13 +196,17 @@ int main()
 							int posBusqueda;
 							cout<<endl<<"Ingrese la Posicion:";
 							cin >> posBusqueda;
-							if (alumno = Lista->siguiente(posBusqueda))
-							{
-								cout<<endl<<"Alumno en la Posicion Siguiente:"<<endl
-								  	<<alumno->toString()<<endl;
+							if(posBusqueda < 1){
+								cout<<endl<<"Posicion Invalida"<<endl;
 							}else{
-								cout<<endl<<"La Siguiente Posicion Esta Vacia"<<endl;
+								if (alumno = Lista->siguiente(posBusqueda)){
+									cout<<endl<<"Alumno en la Posicion Siguiente:"<<endl
+								  		<<alumno->toString()<<endl;
+								}else{
+									cout<<endl<<"La Siguiente Posicion Esta Vacia"<<endl;
+								}
 							}
+							
 							
 							break;
 						}
@@ -211,13 +215,17 @@ int main()
 							int posBusqueda;
 							cout<<endl<<"Ingrese la Posicion:";
 							cin >> posBusqueda;
-							if (alumno = Lista->anterior(posBusqueda))
-							{
-								cout<<endl<<"Alumno en la Posicion Anterior:"<<endl
-								  	<<alumno->toString()<<endl;
+							if(posBusqueda <1){
+								cout<<endl<<"Posicion Invalida"<<endl;
 							}else{
-								cout<<endl<<"La Posicion Anterior Esta Vacia"<<endl;
+								if (alumno = Lista->anterior(posBusqueda)){
+									cout<<endl<<"Alumno en la Posicion Anterior:"<<endl
+								  		<<alumno->toString()<<endl;
+								}else{
+									cout<<endl<<"La Posicion Anterior Esta Vacia"<<endl;
+								}
 							}
+							
 							break;
 						}
 						case 9:
@@ -361,14 +369,14 @@ int main()
 							int posBusqueda;
 							cout<<endl<<"Ingrese la Posicion:";
 							cin >> posBusqueda;
-							if (posBusqueda == 0)
+							if (posBusqueda < 1)
 							{
 								cout<<endl<<"La Lista Empieza en el Numero 1"<<endl;
 							}else{
 								if (alumno = Lista->siguiente(posBusqueda))
 								{
-								cout<<endl<<"Alumno en la Posicion Siguiente:"<<endl
-								  	<<alumno->toString()<<endl;
+									cout<<endl<<"Alumno en la Posicion Siguiente:"<<endl
+								  		<<alumno->toString()<<endl;
 								}else{
 								cout<<endl<<"La Siguiente Posicion Esta Vacia"<<endl;
 								}
@@ -383,13 +391,20 @@ int main()
 							int posBusqueda;
 							cout<<endl<<"Ingrese la Posicion:";
 							cin >> posBusqueda;
-							if (alumno = Lista->anterior(posBusqueda))
+							if (posBusqueda < 1)
 							{
-								cout<<endl<<"Alumno en la Posicion Anterior:"<<endl
-								  	<<alumno->toString()<<endl;
+								cout<<endl<<"Posicion No Valida"<<endl;
 							}else{
-								cout<<endl<<"La Posicion Anterior Esta Vacia"<<endl;
+								if (alumno = Lista->anterior(posBusqueda))
+								{
+									cout<<endl<<"Alumno en la Posicion Anterior:"<<endl
+								  		<<alumno->toString()<<endl;
+								}else{
+									cout<<endl<<"La Posicion Anterior Esta Vacia"<<endl;
+								}
 							}
+							
+							
 							break;
 						}
 						case 9:
@@ -436,7 +451,7 @@ int main()
 					int opcionSub1 = 0;
 					while (opcionSub1 != 6)
 					{
-						cout<<endl<<"--OPERACIONES DE PILA--"<<endl
+						cout<<endl<<endl<<"--OPERACIONES DE PILA--"<<endl
 							<<"1.Empujar(Push)"<<endl<<"2.Sacar(Pop)"
 							<<endl<<"3.Ver Tope(Top)"<<endl<<"4.Verificar si est vacia"
 							<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
@@ -498,13 +513,81 @@ int main()
 						default:
 							break;
 						}//switch de las operaciones de pila
-					}
+					}//while de pila 1
 					
 					break;
 				}
 
 				case 2:
 				{
+					Pila = new LnkedStack();
+					int opcionSub1 = 0;
+					while (opcionSub1 != 6)
+					{
+						cout<<endl<<endl<<"--OPERACIONES DE PILA--"<<endl
+							<<"1.Empujar(Push)"<<endl<<"2.Sacar(Pop)"
+							<<endl<<"3.Ver Tope(Top)"<<endl<<"4.Verificar si est vacia"
+							<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
+							<<endl<<"Escoja una opcion: ";
+						cin >> opcionSub1;
+						switch (opcionSub1)
+						{
+						case 1:{
+							char simbolo_entrada;
+							cout<<"Ingrese un Simbolo para Empujar a la Pila:";
+							cin >> simbolo_entrada;
+							Pila->push(new Simbolo(simbolo_entrada));
+							cout<<"Simbolo Empujado Exitosamente"<<endl;
+							break;
+						}
+						case 2:{
+							if (simbolo = Pila->pop())
+							{
+								cout<<endl<<"Elemento Sacado:"<<endl;
+								cout<<simbolo->toString();
+							}else
+							{
+								cout<<endl<<"No hay Elementos en la Pila";
+							}
+							
+							
+							break;
+						}
+						case 3:{
+							if (simbolo = Pila->top())
+							{
+								cout<<endl<<"Elemento en el Tope:"<<endl;
+								cout<<simbolo->toString();
+							}else
+							{
+								cout<<endl<<"No hay Elementos en la Pila";
+							}
+							
+							break;
+						}
+						case 4:{
+							if (Pila->isEmpty())
+							{
+								cout<<endl<<"Esta Vacia"<<endl;
+							}else
+							{
+								cout<<endl<<"No esta Vacia"<<endl;
+							}
+							
+							
+							break;
+						}
+						case 5:{
+							cout<<endl<<"Elementos en la Pila:"<<endl<<endl;
+							Pila->print();
+							break;
+						}
+						
+						default:
+							break;
+						}//switch de las operaciones de pila
+					}//while pila 2
+
 					break;
 				}
 
@@ -611,18 +694,91 @@ int main()
 						default:
 							break;
 						}//switch de las operaciones de cola
-					}
+					}//while de cola 2
 					
 					break;
 				}
 				case 2:
 				{
+					string A_nombre;
+					int A_cuenta;
+					int opcionSub1 = 0;
+					Cola = new LinkedQueue();
+					while (opcionSub1 != 6)
+					{
+						cout<<endl<<"--OPERACIONES DE COLAS--"<<endl
+							<<"1.Encolar(Queue) "<<endl<<"2.Desencolar(Dequeue) "
+							<<endl<<"3.Ver Tope(Peek) "<<endl<<"4.Verificar si esta vacia"
+							<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
+							<<endl<<"Escoja una opcion: ";
+						cin >> opcionSub1;
+						switch (opcionSub1)
+						{
+						case 1:{
+							cout << endl << "Ingrese el Nombre del Alumno:" ;
+							cin >> A_nombre;
+							cout << endl << "Ingrese su Numero de Cuenta: ";
+							cin >> A_cuenta;
+							Cola->poneEnCola(new Alumno(A_nombre,A_cuenta));
+							cout<<endl<<"Alumno Puesto en Cola Exitosamente!"<<endl;
+							break;
+						}
+						case 2:{
+							if (alumno = Cola->quitaDeCola())
+							{
+								cout<<endl<<"Elemento Sacado de la Cola:"<<endl
+									<<alumno->toString()<<endl;
+							}else
+							{
+								cout<<endl<<"No hay Elementos en la Cola"<<endl;
+							}
+							
+							
+							break;
+						}
+						case 3:{
+							if (alumno = Cola->frente())
+							{
+								cout<<endl<<"Elemento en el Frente de la Cola:"<<endl
+									<<alumno->toString()<<endl;
+
+							}else
+							{
+								cout<<endl<<"No hay Elementos en la Cola"<<endl;
+
+							}
+							
+							
+							break;
+						}
+						case 4:{
+							if (Cola->vacia())
+							{
+								cout<<endl<<"La Cola Esta Vacia"<<endl;
+								
+							}else
+							{
+								cout<<endl<<"La Cola No Esta Vacia"<<endl;
+
+							}
+							
+							
+							break;
+						}
+						case 5:{
+							cout<<endl<<"Elementos en la Cola:"<<endl;
+							Cola->imprime();
+							
+							break;
+						}
+						
+						default:
+							break;
+						}//switch de las operaciones de cola
+					}//while de cola 2
 					break;
 				}
-				case 3:
-				{
-					break;
-				}
+				
 
 				default:
 					break;
