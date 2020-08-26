@@ -75,20 +75,24 @@ void ArrayQueue::imprime(){
 	//iterar las casillas desde frente hasta final e imprimir en pantalla
 	int cont = 0;
 	cout<<endl;
-	while ((array[Pfrente]) && (cont<capacity))
-	{
-		cout<<array[Pfrente]->toString()<<endl;
-		Pfrente++;
-			
-		if (Pfrente >= capacity)//
+	if (Pfrente > final)	{
+		for (int i = Pfrente; i < capacity; i++)
 		{
-			Pfrente = 0;
+			cout<<endl<<array[i]->toString()<<endl;
 		}
-		cont++;
+		for (int i = 0; i < final; i++)
+		{
+			cout<<endl<<array[i]->toString()<<endl;
+		}
 
-		cout<<"Prueba1";				
+	}else{
+		
+		for (int i = Pfrente; i < final; i++)
+		{
+			cout<<endl<<array[i]->toString()<<endl;
+		}
 	}
-	cout<<"Prueba2";
+	
 		
 }
 

@@ -30,10 +30,16 @@ class LinkedList : public TDAList
 		virtual Object* primero();
 		
 		virtual int localiza(Object*);
+
+		virtual string toString();
+
+		virtual bool equals(Object*);
+
 		
 		
 	protected:
 		Node* inicio;
+		Node* final;
 		int n; 
 };
 
