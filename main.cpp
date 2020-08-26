@@ -2,30 +2,30 @@
 using namespace std;
 
 #include "Object.h"
-#include "Node.h"
+#include "Node.cpp"
 
-#include "Alumno.h"
+#include "Alumno.cpp"
 
-#include "Simbolo.h"
+#include "Simbolo.cpp"
 
 
 #include "TDAList.h"
 
-#include "TDAQueue.h"
+#include "TDAQueue.cpp"
 
-#include "TDAStack.h"
-
-
-#include "ArrayList.h"
-
-#include "ArrayQueue.h"
-
-#include "ArrayStack.h"
+#include "TDAStack.cpp"
 
 
-#include "LinkedList.h"
-#include "LinkedQueue.h"
-#include "LnkedStack.h"
+#include "ArrayList.cpp"
+
+#include "ArrayQueue.cpp"
+
+#include "ArrayStack.cpp"
+
+
+#include "LinkedList.cpp"
+#include "LinkedQueue.cpp"
+#include "LnkedStack.cpp"
 
 int main()
 {

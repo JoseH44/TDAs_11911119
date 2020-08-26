@@ -1,7 +1,6 @@
 #include "ArrayList.h"
 
-ArrayList::ArrayList(){
-	
+ArrayList::ArrayList(){	
 	capacity = 1024; //4096 bytes
 	n=0;
 	array = new Object*[capacity];

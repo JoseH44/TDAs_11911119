@@ -5,6 +5,10 @@
 
 class ArrayList : public TDAList
 {
+	protected:
+		Object** array;
+		int capacity;
+		int n;
 	public:
 		
 		ArrayList();
@@ -33,14 +37,7 @@ class ArrayList : public TDAList
 
 		virtual string toString();
 
-		virtual bool equals(Object*);
-		
-		
-		
-	protected:
-		Object** array;
-		int capacity;
-		int n;
+		virtual bool equals(Object*);							
 
 };
 
