@@ -6,6 +6,10 @@ Alumno::Alumno(string pNombre, int pCuenta)
     num_cuenta = pCuenta;
 }
 
+Alumno::Alumno(){
+    
+}
+
 bool Alumno::equals(Object *otro)
 {
     Alumno *ref = dynamic_cast<Alumno *>(otro);

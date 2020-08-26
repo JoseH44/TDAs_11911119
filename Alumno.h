@@ -13,6 +13,9 @@ private:
     string nombre;
 
 public:
+    Alumno();
+
+
     Alumno(string, int);
     int getCuenta();
     string getNombre();

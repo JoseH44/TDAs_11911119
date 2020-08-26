@@ -5,23 +5,23 @@ using namespace std;
 #include "Node.h"
 
 #include "Alumno.h"
-#include "Alumno.cpp"
+
 #include "Simbolo.h"
-#include "Simbolo.cpp"
+
 
 #include "TDAList.h"
-#include "TDAList.cpp"
+
 #include "TDAQueue.h"
-#include "TDAQueue.cpp"
+
 #include "TDAStack.h"
-#include "TDAStack.cpp"
+
 
 #include "ArrayList.h"
-#include "ArrayList.cpp"
+
 #include "ArrayQueue.h"
-#include "ArrayQueue.cpp"
+
 #include "ArrayStack.h"
-#include "ArrayStack.cpp"
+
 
 #include "LinkedList.h"
 #include "LinkedQueue.h"
