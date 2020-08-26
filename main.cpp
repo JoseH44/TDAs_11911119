@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#include "Object.h"
+//#include "Object.h"
 
 #include "Node.cpp"
 
@@ -9,7 +9,7 @@ using namespace std;
 
 #include "Simbolo.cpp"
 
-#include "TDAList.h"
+//#include "TDAList.h"
 
 #include "TDAQueue.cpp"
 

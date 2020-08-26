@@ -1,4 +1,6 @@
-#pragma once
+
+#ifndef ALUMNO_H
+#define ALUMNO_H
 
 #include <string>
 using std::string;
@@ -21,4 +23,4 @@ public:
     ~Alumno();
 };
 
-//#endif
+#endif
