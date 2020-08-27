@@ -12,9 +12,14 @@ Object* LinkedQueue::frente(){
 	else
 		return inicio.data;
 	*/
-
-    //BORRAR
-	return nullptr;
+    if(vacia()){
+        return NULL;
+    }else{
+        Object* retValue;
+        retValue = inicio->getData();
+        return retValue;
+    }
+    
 }
 
 void LinkedQueue::poneEnCola(Object* x){
@@ -53,10 +58,8 @@ Object* LinkedQueue::quitaDeCola(){
 }
 
 bool LinkedQueue::vacia(){
-	//return inicio == NULL
+	return inicio == NULL;
 
-    //BORRAR
-	return false;
 }
 
 void LinkedQueue::anula(){

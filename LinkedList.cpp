@@ -3,6 +3,7 @@
 LinkedList::LinkedList()
 {
 	inicio = NULL;
+	final = NULL;
 	n = 0;
 }
 
@@ -114,47 +115,51 @@ Object* LinkedList::anterior(int p){
 
 
 Object* LinkedList::suprime(int p){
-	//validar el rango de p
-	//si p es v�lido
-		//hops = p - 1 
-		//declarar temp = inicio para iterar
-		// for i = 1 to hops
-			//temp = temp.sig
-		//temp.ant.sig = temp.sig  temp->getAnterior()->setSiguiente(temp->getSiguiente());
-		//temp.sig.ant = temp.ant
-		//temp.ant = null temp->setAnterior(NULL)
-		//temp.sig = null
-		//n--	
-		//retValue = temp.data
-		//temp.data = null
-		//delete temp
-		//retornar retValue
-	//else
-		//retorna null
-	
-
-	//revisar
 
 	if (p>=1 && p<=n){
-		Node* temporal = inicio;
-		for (int i = 0; i < p-1; i++){
-			temporal = temporal->getSiguiente();
-		}
-		temporal->getAnterior()->setSiguiente(temporal->getSiguiente());
-		temporal->getSiguiente()->setAnterior(temporal->getAnterior());
-		temporal->setAnterior(NULL);
-		temporal->setSiguiente(NULL);
-		n--;
-		Object* retvalue;
-		retvalue = temporal->getData();
-		temporal->setData(NULL);
-		//delete temporal;
-		return retvalue;
+		Node* temporal;
 
-	}else{
-		return NULL;
+		if(p == 1){
+
+			temporal = inicio;
+			inicio = inicio->getSiguiente();
+			Object* retValue;
+			retValue = temporal->getData();
+			delete temporal;
+			n--;
+			return retValue;
+
+		}else if(p == n){
+			temporal = final;
+			final = final->getAnterior();
+			Object* retValue;
+			retValue = temporal->getData();
+			cout<<"aaaaaver"<<retValue->toString();
+			/*temporal->setAnterior(NULL);
+			temporal->setSiguiente(NULL);*/
+			delete temporal;//aquí truena
+			n--;
+
+			return retValue;
+
+		}else if(p > 1 || p < n){
+			temporal = inicio;
+			for (int i = 0; i < p-1; i++){
+				temporal = temporal->getSiguiente();
+			}
+			temporal->getAnterior()->setSiguiente(temporal->getSiguiente());
+			final->getAnterior()->setAnterior(temporal->getAnterior());
+			Object* retValue;
+			retValue = temporal->getData();
+			
+			delete temporal;
+			n--;
+			return retValue;
+
+		}
+
 	}
-	
+	return NULL;
 }
 
 bool LinkedList::inserta(int p,Object* x){
