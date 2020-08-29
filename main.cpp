@@ -38,7 +38,7 @@ int main()
 	
 
 	int opcion = 0;
-	cout << "-----BIENVENIDO-----" << endl
+	cout <<endl<< "-----BIENVENIDO-----" << endl
 		<< endl;
 	while (opcion != 4)
 	{

@@ -12,10 +12,6 @@ LnkedStack::~LnkedStack()
 
 
 void LnkedStack::print(){
-	//temp = top
-	//while temp != null
-		//print temp.data
-		//temp = temp.sig
 
 	Node* temporal = Ntop;
 	

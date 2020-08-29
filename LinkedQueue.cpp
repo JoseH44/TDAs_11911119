@@ -17,22 +17,24 @@ Object* LinkedQueue::frente(){
     }else{
         Object* retValue;
         retValue = inicio->getData();
+       
         return retValue;
     }
     
 }
 
 void LinkedQueue::poneEnCola(Object* x){
-	/*
-	crear newNode que contenga x
-	if(vacia())
-		inicio = final = newNode
-	else
-		
-		final.sig = newNode
-		newNode.ant = final
-		final = newNode
-	*/
+	
+
+    Node* newNode = new Node();
+    newNode->setData(x);
+    if(vacia()){
+        inicio = final = newNode;
+    }else{
+        final->setSiguiente(newNode);
+        newNode->setAnterior(final);
+        final = newNode;
+    }
 }
 
 
@@ -54,7 +56,25 @@ Object* LinkedQueue::quitaDeCola(){
         //return NULL
     
     //BORRAR
-	return nullptr;
+	if(!vacia()){
+        Node* temporal = inicio;
+        Object* retValue = temporal->getData();
+        if(temporal->getSiguiente()){
+            temporal->getSiguiente()->setAnterior(NULL);
+            inicio = temporal->getSiguiente();
+        }else{
+            inicio = NULL;
+        }
+        temporal->setSiguiente(NULL);
+        temporal->setData(NULL);
+        
+        delete temporal;
+        return retValue;
+
+    }else{
+        return 0;
+    }
+    
 }
 
 bool LinkedQueue::vacia(){
@@ -75,6 +95,17 @@ void LinkedQueue::anula(){
     //inicio = final = NULL;
     //
 
+    while (!vacia())
+    {
+        Node* temporal = inicio;
+        inicio = inicio->getSiguiente();
+        inicio->setAnterior(NULL);
+        temporal->setSiguiente(NULL);
+        delete temporal;
+    }
+    inicio = final = NULL;
+    
+
 }
 
 void LinkedQueue::imprime(){
@@ -85,6 +116,20 @@ void LinkedQueue::imprime(){
                 //cout<<temporal.data
                 //temporal= temporal.sig
         // retornar mensaje de que la cola esta vacia.
+
+    Node* temporal = inicio;
+    if(temporal){
+        while (temporal){
+            cout<<endl<<temporal->getData()->toString()<<endl;
+            temporal = temporal->getSiguiente();
+    
+        }
+    }else{
+        cout<<"No Hay Elemtos en la Pila"<<endl;
+    }
+    
+    
+    
 }
 
 LinkedQueue::~LinkedQueue()

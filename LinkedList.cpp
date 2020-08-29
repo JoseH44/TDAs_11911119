@@ -125,7 +125,7 @@ Object* LinkedList::suprime(int p){
 			inicio = inicio->getSiguiente();
 			Object* retValue;
 			retValue = temporal->getData();
-			delete temporal;
+			//delete temporal;
 			n--;
 			return retValue;
 
@@ -134,10 +134,10 @@ Object* LinkedList::suprime(int p){
 			final = final->getAnterior();
 			Object* retValue;
 			retValue = temporal->getData();
-			cout<<"aaaaaver"<<retValue->toString();
+			
 			/*temporal->setAnterior(NULL);
-			temporal->setSiguiente(NULL);*/
-			delete temporal;//aquí truena
+			temporal->setSiguiente(NULL);
+			delete temporal;//aquí truena*/
 			n--;
 
 			return retValue;
@@ -152,7 +152,7 @@ Object* LinkedList::suprime(int p){
 			Object* retValue;
 			retValue = temporal->getData();
 			
-			delete temporal;
+			//delete temporal;
 			n--;
 			return retValue;
 
