@@ -16,12 +16,27 @@ void LnkedStack::print(){
 	//while temp != null
 		//print temp.data
 		//temp = temp.sig
+
+	Node* temporal = Ntop;
+	if(!Ntop){
+		cout<<"VACIO";
+	}
+	
+	while (temporal)
+	{
+		cout<<endl<<temporal->getData()->toString()<<endl;
+		temporal = temporal->getAnterior();
+	}
+	
 }
 
 void LnkedStack::clear(){
 	//si no est� vac�a
+	if(!isEmpty()){
 		delete Ntop;
 		Ntop=NULL;
+	}
+		
 }
 
 
@@ -30,13 +45,14 @@ bool LnkedStack::isEmpty(){
 }
 
 Object* LnkedStack::top(){
-	//si est� vac�a 
-		//return null
-	//else
-		//return top.data
 	
-	//BORRAR
-	return nullptr;
+	if(isEmpty()){
+		return NULL;
+	}else{
+		Object* retValue;
+		retValue = Ntop->getData();
+		return retValue;
+	}
 }
 
 Object* LnkedStack::pop(){
@@ -53,7 +69,24 @@ Object* LnkedStack::pop(){
 		//return reValue
 		
 	//BORRAR
-	return nullptr;
+	
+	if(isEmpty()){
+		return NULL;
+	}else{
+		Node* temporal = Ntop;
+		Object* retValue;
+		retValue = temporal->getData();
+		Ntop = Ntop->getAnterior();
+		Ntop->setSiguiente(NULL);
+		temporal->setAnterior(NULL);
+		temporal->setSiguiente(NULL);
+		temporal->setData(NULL);
+		delete temporal;
+		return retValue;
+
+
+	}
+
 } 
 
 void LnkedStack::push(Object* x){
@@ -61,4 +94,18 @@ void LnkedStack::push(Object* x){
 	//newNode.sig = top
 	//top.ant = newNode
 	//top = newNode	
+	if(isEmpty()){
+		Node* newNode = new Node();
+		newNode->setData(x);
+		Ntop = newNode;
+	}else{
+		Node* newNode = new Node();
+		newNode->setData(x);
+		newNode->setAnterior(Ntop);
+		Ntop->setSiguiente(newNode);
+		Ntop = newNode;
+	}
+	
+
+
 }

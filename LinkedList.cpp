@@ -117,7 +117,7 @@ Object* LinkedList::anterior(int p){
 Object* LinkedList::suprime(int p){
 
 	if (p>=1 && p<=n){
-		Node* temporal;
+		Node* temporal = NULL;
 
 		if(p == 1){
 
@@ -170,7 +170,7 @@ bool LinkedList::inserta(int p,Object* x){
         return false;
     
     //nodo a agregar
-    Node* newNode = new Node;    
+    Node* newNode = new Node();    
     newNode->setData(x);    
     
     //Insertar cuando la lista esta vacia

@@ -464,7 +464,7 @@ int main()
 							cout<<"Ingrese un Simbolo para Empujar a la Pila:";
 							cin >> simbolo_entrada;
 							Pila->push(new Simbolo(simbolo_entrada));
-							cout<<"Simbolo Empujado Exitosamente"<<endl;
+							cout<<endl<<"Simbolo Empujado Exitosamente!"<<endl;
 							break;
 						}
 						case 2:{
@@ -537,7 +537,7 @@ int main()
 							cout<<"Ingrese un Simbolo para Empujar a la Pila:";
 							cin >> simbolo_entrada;
 							Pila->push(new Simbolo(simbolo_entrada));
-							cout<<"Simbolo Empujado Exitosamente"<<endl;
+							cout<<endl<<"Simbolo Empujado Exitosamente!"<<endl;
 							break;
 						}
 						case 2:{
