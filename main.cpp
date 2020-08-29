@@ -453,7 +453,7 @@ int main()
 					{
 						cout<<endl<<endl<<"--OPERACIONES DE PILA--"<<endl
 							<<"1.Empujar(Push)"<<endl<<"2.Sacar(Pop)"
-							<<endl<<"3.Ver Tope(Top)"<<endl<<"4.Verificar si est vacia"
+							<<endl<<"3.Ver Tope(Top)"<<endl<<"4.Verificar si esta vacia"
 							<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
 							<<endl<<"Escoja una opcion: ";
 						cin >> opcionSub1;
@@ -505,7 +505,7 @@ int main()
 							break;
 						}
 						case 5:{
-							cout<<endl<<"Elementos en la Pila:"<<endl<<endl;
+							cout<<endl<<endl<<"Elementos en la Pila:"<<endl<<endl;
 							Pila->print();
 							break;
 						}
@@ -526,7 +526,7 @@ int main()
 					{
 						cout<<endl<<endl<<"--OPERACIONES DE PILA--"<<endl
 							<<"1.Empujar(Push)"<<endl<<"2.Sacar(Pop)"
-							<<endl<<"3.Ver Tope(Top)"<<endl<<"4.Verificar si est vacia"
+							<<endl<<"3.Ver Tope(Top)"<<endl<<"4.Verificar si esta vacia"
 							<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
 							<<endl<<"Escoja una opcion: ";
 						cin >> opcionSub1;
@@ -578,7 +578,7 @@ int main()
 							break;
 						}
 						case 5:{
-							cout<<endl<<"Elementos en la Pila:"<<endl<<endl;
+							cout<<endl<<endl<<"Elementos en la Pila:"<<endl<<endl;
 							Pila->print();
 							break;
 						}

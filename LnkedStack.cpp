@@ -18,10 +18,9 @@ void LnkedStack::print(){
 		//temp = temp.sig
 
 	Node* temporal = Ntop;
-	if(!Ntop){
-		cout<<"VACIO";
-	}
 	
+	
+
 	while (temporal)
 	{
 		cout<<endl<<temporal->getData()->toString()<<endl;
