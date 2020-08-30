@@ -88,7 +88,7 @@ void ArrayList::imprime(){
 	
 	for (int i = 1; i <= n; i++)
 	{
-		cout<<array[i-1]->toString()<<endl;
+		cout<<endl<<i<<")"<<endl<<array[i-1]->toString()<<endl;
 	}
 }
 

@@ -23,7 +23,7 @@ void LinkedList::imprime(){
 
 	Node* temporal = inicio;
 	for (int i = 0; i < n; i++)	{
-		cout<<endl<<temporal->getData()->toString()<<endl;
+		cout<<endl<<i+1<<")"<<endl<<temporal->getData()->toString()<<endl;
 		temporal = temporal->getSiguiente();
 	}
 	
@@ -117,7 +117,7 @@ Object* LinkedList::anterior(int p){
 Object* LinkedList::suprime(int p){
 
 	if (p>=1 && p<=n){
-		Node* temporal = NULL;
+		Node* temporal;
 
 		if(p == 1){
 
@@ -125,19 +125,23 @@ Object* LinkedList::suprime(int p){
 			inicio = inicio->getSiguiente();
 			Object* retValue;
 			retValue = temporal->getData();
+			temporal->setAnterior(NULL);
+			temporal->setSiguiente(NULL);
 			//delete temporal;
 			n--;
 			return retValue;
 
 		}else if(p == n){
 			temporal = final;
+			
 			final = final->getAnterior();
+			
 			Object* retValue;
 			retValue = temporal->getData();
 			
-			/*temporal->setAnterior(NULL);
+			temporal->setAnterior(NULL);
 			temporal->setSiguiente(NULL);
-			delete temporal;//aquí truena*/
+			
 			n--;
 
 			return retValue;
@@ -151,7 +155,9 @@ Object* LinkedList::suprime(int p){
 			final->getAnterior()->setAnterior(temporal->getAnterior());
 			Object* retValue;
 			retValue = temporal->getData();
-			
+			temporal->setAnterior(NULL);
+			temporal->setSiguiente(NULL);
+
 			//delete temporal;
 			n--;
 			return retValue;
