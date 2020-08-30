@@ -1,6 +1,11 @@
 #include <iostream>
 using namespace std;
 
+#include <string>
+
+#include <ctype.h>
+
+
 //#include "Object.h"
 
 #include "Node.h"
@@ -26,6 +31,8 @@ using namespace std;
 #include "LinkedQueue.h"
 #include "LnkedStack.h"
 
+int validarNumero(string);
+
 int main()
 {
 	//apuntadores a las diferentes TDAs
@@ -35,6 +42,16 @@ int main()
 	Object *alumno = nullptr;
 	Object *simbolo = nullptr;
 
+	string aver = "12b4";
+	int fl;
+	fl = validarNumero(aver);
+	if(fl == 0){
+		cout<<"SOLO HAY NUMEROS";
+	}else{
+		cout<<"NO ES NUMERO";
+	}
+
+	
 	
 
 	int opcion = 0;
@@ -75,7 +92,8 @@ int main()
 					int posicion;
 					Lista = new ArrayList();
 					int opcionSub1 = 0;
-					string A_nombre;
+					string A_nombre,Pcuenta;
+					int flag;
 					int A_cuenta;
 
 					 
@@ -102,9 +120,11 @@ int main()
 							int respuesta = -1;
 							while (respuesta != 0)
 							{
+								cin.ignore(1000,'\n');
 								cout << endl << "Ingrese el Nombre del Alumno:" ;
-								cin >> A_nombre;
-								cout << endl << "Ingrese su Numero de Cuenta: ";
+								getline(cin,A_nombre);
+								
+								cout <<A_nombre<< endl << "Ingrese su Numero de Cuenta: ";
 								cin >> A_cuenta;
 								cout << endl << "Ingrese la Posicion en la que se Guardara: ";
 								cin >> posicion;
@@ -275,8 +295,10 @@ int main()
 							int respuesta = -1;
 							while (respuesta != 0)
 							{
+								cin.ignore(1000,'\n');
 								cout << endl << "Ingrese el Nombre del Alumno:" ;
-								cin >> A_nombre;
+								getline(cin,A_nombre);
+
 								cout << endl << "Ingrese su Numero de Cuenta: ";
 								cin >> A_cuenta;
 								cout << endl << "Ingrese la Posicion en la que se Guardara: ";
@@ -634,8 +656,10 @@ int main()
 						switch (opcionSub1)
 						{
 						case 1:{
+							cin.ignore(1000,'\n');
 							cout << endl << "Ingrese el Nombre del Alumno:" ;
-							cin >> A_nombre;
+							getline(cin,A_nombre);
+
 							cout << endl << "Ingrese su Numero de Cuenta: ";
 							cin >> A_cuenta;
 							Cola->poneEnCola(new Alumno(A_nombre,A_cuenta));
@@ -715,8 +739,10 @@ int main()
 						switch (opcionSub1)
 						{
 						case 1:{
+							cin.ignore(1000,'\n');
 							cout << endl << "Ingrese el Nombre del Alumno:" ;
-							cin >> A_nombre;
+							getline(cin,A_nombre);
+
 							cout << endl << "Ingrese su Numero de Cuenta: ";
 							cin >> A_cuenta;
 							Cola->poneEnCola(new Alumno(A_nombre,A_cuenta));
@@ -814,4 +840,19 @@ int main()
 	}
 	
 	return 0;
+}
+
+//funcion de validar el numero
+int validarNumero(string sCuenta){
+	int contador = 0;
+	for (int i = 0; i < sCuenta.size(); i++)
+	{
+		if(isdigit(sCuenta[i])==0){
+			contador++;
+			
+		}
+		
+	}
+	
+	return contador;
 }
