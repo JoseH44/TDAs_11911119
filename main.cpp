@@ -5,6 +5,8 @@ using namespace std;
 
 #include <ctype.h>
 
+#include <stdlib.h>
+
 
 //#include "Object.h"
 
@@ -33,6 +35,8 @@ using namespace std;
 
 int validarNumero(string);
 
+bool validarChar(string);
+
 int main()
 {
 	//apuntadores a las diferentes TDAs
@@ -42,14 +46,7 @@ int main()
 	Object *alumno = nullptr;
 	Object *simbolo = nullptr;
 
-	string aver = "12b4";
-	int fl;
-	fl = validarNumero(aver);
-	if(fl == 0){
-		cout<<"SOLO HAY NUMEROS";
-	}else{
-		cout<<"NO ES NUMERO";
-	}
+	
 
 	
 	
@@ -123,9 +120,22 @@ int main()
 								cin.ignore(1000,'\n');
 								cout << endl << "Ingrese el Nombre del Alumno:" ;
 								getline(cin,A_nombre);
+
+								//cin.ignore(1000,'\n');
+								cout << endl << "Ingrese su Numero de Cuenta: ";
+								getline(cin,Pcuenta);
+								flag = validarNumero(Pcuenta);
+								while (flag != 0)
+								{
+									cout<<endl<<"Numero de Cuenta Invalido"<<endl;
+									//cin.ignore(1000,'\n');
+									cout << endl << "Ingrese su Numero de Cuenta: ";
+									getline(cin,Pcuenta);
+									flag = validarNumero(Pcuenta);
+								}
 								
-								cout <<A_nombre<< endl << "Ingrese su Numero de Cuenta: ";
-								cin >> A_cuenta;
+								A_cuenta = stoi(Pcuenta);
+
 								cout << endl << "Ingrese la Posicion en la que se Guardara: ";
 								cin >> posicion;
 
@@ -268,8 +278,9 @@ int main()
 					int posicion;
 					Lista = new LinkedList();
 					int opcionSub1 = 0;
-					string A_nombre;
-					int A_cuenta;
+					string A_nombre,Pcuenta;
+
+					int A_cuenta,flag;
 
 					 
 					while (opcionSub1 != 10)
@@ -300,7 +311,18 @@ int main()
 								getline(cin,A_nombre);
 
 								cout << endl << "Ingrese su Numero de Cuenta: ";
-								cin >> A_cuenta;
+								getline(cin,Pcuenta);
+								flag = validarNumero(Pcuenta);
+								while (flag != 0)
+								{
+									cout<<endl<<"Numero de Cuenta Invalido"<<endl;
+									//cin.ignore(1000,'\n');
+									cout << endl << "Ingrese su Numero de Cuenta: ";
+									getline(cin,Pcuenta);
+									flag = validarNumero(Pcuenta);
+								}
+								
+								A_cuenta = stoi(Pcuenta);
 								cout << endl << "Ingrese la Posicion en la que se Guardara: ";
 								cin >> posicion;
 
@@ -471,6 +493,7 @@ int main()
 				{
 					Pila = new ArrayStack();
 					int opcionSub1 = 0;
+					string pChar;
 					while (opcionSub1 != 6)
 					{
 						cout<<endl<<endl<<"--OPERACIONES DE PILA--"<<endl
@@ -482,9 +505,21 @@ int main()
 						switch (opcionSub1)
 						{
 						case 1:{
+							cin.ignore(1000,'\n');
 							char simbolo_entrada;
-							cout<<"Ingrese un Simbolo para Empujar a la Pila:";
-							cin >> simbolo_entrada;
+							cout<<endl<<"Ingrese un Simbolo para Empujar a la Pila:";
+							getline(cin,pChar);
+							
+							while (!validarChar(pChar))
+							{
+								cout<<endl<<"Debe Ingresar Un Solo Caracter"<<endl
+									<<"Ingrese un Simbolo para Empujar a la Pila:";
+								getline(cin,pChar);
+
+							}
+
+							simbolo_entrada = pChar[0];
+							
 							Pila->push(new Simbolo(simbolo_entrada));
 							cout<<endl<<"Simbolo Empujado Exitosamente!"<<endl;
 							break;
@@ -544,6 +579,7 @@ int main()
 				{
 					Pila = new LnkedStack();
 					int opcionSub1 = 0;
+					string pChar;
 					while (opcionSub1 != 6)
 					{
 						cout<<endl<<endl<<"--OPERACIONES DE PILA--"<<endl
@@ -556,8 +592,21 @@ int main()
 						{
 						case 1:{
 							char simbolo_entrada;
-							cout<<"Ingrese un Simbolo para Empujar a la Pila:";
-							cin >> simbolo_entrada;
+							cin.ignore(1000,'\n');
+							cout<<endl<<"Ingrese un Simbolo para Empujar a la Pila:";
+							
+							getline(cin,pChar);
+							
+							while (!validarChar(pChar))
+							{
+								cout<<endl<<"Debe Ingresar Un Solo Caracter"<<endl
+									<<"Ingrese un Simbolo para Empujar a la Pila:";
+								getline(cin,pChar);
+
+							}
+
+							simbolo_entrada = pChar[0];
+
 							Pila->push(new Simbolo(simbolo_entrada));
 							cout<<endl<<"Simbolo Empujado Exitosamente!"<<endl;
 							break;
@@ -641,8 +690,8 @@ int main()
 				{
 				case 1:
 				{
-					string A_nombre;
-					int A_cuenta;
+					string A_nombre,Pcuenta;
+					int A_cuenta,flag;
 					int opcionSub1 = 0;
 					Cola = new ArrayQueue();
 					while (opcionSub1 != 6)
@@ -661,7 +710,18 @@ int main()
 							getline(cin,A_nombre);
 
 							cout << endl << "Ingrese su Numero de Cuenta: ";
-							cin >> A_cuenta;
+							getline(cin,Pcuenta);
+							flag = validarNumero(Pcuenta);
+							while (flag != 0){
+								cout<<endl<<"Numero de Cuenta Invalido"<<endl;
+								//cin.ignore(1000,'\n');
+								cout << endl << "Ingrese su Numero de Cuenta: ";
+								getline(cin,Pcuenta);
+								flag = validarNumero(Pcuenta);
+							}
+								
+							A_cuenta = stoi(Pcuenta);
+
 							Cola->poneEnCola(new Alumno(A_nombre,A_cuenta));
 							cout<<endl<<"Alumno Puesto en Cola Exitosamente!"<<endl;
 							break;
@@ -724,8 +784,8 @@ int main()
 				}
 				case 2:
 				{
-					string A_nombre;
-					int A_cuenta;
+					string A_nombre,Pcuenta;
+					int A_cuenta,flag;
 					int opcionSub1 = 0;
 					Cola = new LinkedQueue();
 					while (opcionSub1 != 6)
@@ -744,7 +804,18 @@ int main()
 							getline(cin,A_nombre);
 
 							cout << endl << "Ingrese su Numero de Cuenta: ";
-							cin >> A_cuenta;
+							getline(cin,Pcuenta);
+							flag = validarNumero(Pcuenta);
+							while (flag != 0){
+								cout<<endl<<"Numero de Cuenta Invalido"<<endl;
+								//cin.ignore(1000,'\n');
+								cout << endl << "Ingrese su Numero de Cuenta: ";
+								getline(cin,Pcuenta);
+								flag = validarNumero(Pcuenta);
+							}
+								
+							A_cuenta = stoi(Pcuenta);
+
 							Cola->poneEnCola(new Alumno(A_nombre,A_cuenta));
 							cout<<endl<<"Alumno Puesto en Cola Exitosamente!"<<endl;
 							break;
@@ -855,4 +926,13 @@ int validarNumero(string sCuenta){
 	}
 	
 	return contador;
+}
+
+//funcion para validar el char
+bool validarChar(string pChar){
+	if(pChar.size() == 1)
+		return true;
+	else{
+		return false;
+	}
 }
