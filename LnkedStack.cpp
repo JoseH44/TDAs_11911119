@@ -15,8 +15,7 @@ void LnkedStack::print(){
 
 	Node* temporal = Ntop;
 	
-	
-
+	//mientras temporal no apunte a null este seguirá imprimiendo los elementos de la pila
 	while (temporal)
 	{
 		cout<<endl<<temporal->getData()->toString()<<endl;
@@ -26,7 +25,7 @@ void LnkedStack::print(){
 }
 
 void LnkedStack::clear(){
-	//si no est� vac�a
+	//si no está vacía
 	if(!isEmpty()){
 		delete Ntop;
 		Ntop=NULL;
@@ -36,42 +35,30 @@ void LnkedStack::clear(){
 
 
 bool LnkedStack::isEmpty(){
-	return Ntop == NULL;
+	return Ntop == NULL;//devuelve el valor comparado entre el apuntador y null
 }
 
 Object* LnkedStack::top(){
 	
 	if(isEmpty()){
-		return NULL;
+		return NULL;//si está vacía retorna null
 	}else{
 		Object* retValue;
-		retValue = Ntop->getData();
+		retValue = Ntop->getData();//guarda el elemento en el tope de la pila
 		return retValue;
 	}
 }
 
 Object* LnkedStack::pop(){
-	//si est� vac�a
-		//return null
-	//else
-		//nodo* temp = top
-		//top = top.sig
-		//top.ant = null
-		//temp.sig = null
-		//retValue = temp.data
-		//temp.data = NULL
-		//delete temp
-		//return reValue
-		
-	//BORRAR
 	
 	if(isEmpty()){
 		return NULL;
 	}else{
 		Node* temporal = Ntop;
 		Object* retValue;
-		retValue = temporal->getData();
-		Ntop = Ntop->getAnterior();
+		retValue = temporal->getData();////guarda el elemento en el tope de la pila
+		Ntop = Ntop->getAnterior();//el tope de la pila ahora se mueve apuntando al anterior
+		//se setean los enlaces
 		Ntop->setSiguiente(NULL);
 		temporal->setAnterior(NULL);
 		temporal->setSiguiente(NULL);
@@ -85,22 +72,17 @@ Object* LnkedStack::pop(){
 } 
 
 void LnkedStack::push(Object* x){
-	//crear newNode que contenga x 
-	//newNode.sig = top
-	//top.ant = newNode
-	//top = newNode	
+	
 	if(isEmpty()){
-		Node* newNode = new Node();
+		Node* newNode = new Node();//crea un nuevo nodo
 		newNode->setData(x);
-		Ntop = newNode;
+		Ntop = newNode;//como la pila está vacía el nodo tope apunta al nuevo nodo
 	}else{
 		Node* newNode = new Node();
 		newNode->setData(x);
-		newNode->setAnterior(Ntop);
+		newNode->setAnterior(Ntop);//el nodo anterior del nuevo será el nodo tope
 		Ntop->setSiguiente(newNode);
-		Ntop = newNode;
+		Ntop = newNode;//el nuevo nodo se convierte en el tope de la pila
 	}
 	
-
-
 }

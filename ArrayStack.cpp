@@ -57,6 +57,7 @@ Object* ArrayStack::top() {
 }
 
 void ArrayStack::clear(){
+	//recorre los elementos del arreglo y les hace delete
 	for(int i = 0 ; i < tope;i++ )
 		delete array[i];
 		

@@ -12,8 +12,8 @@ Object* ArrayQueue::frente(){
 	if (!vacia())
 	{
 		Object* retValue;
-		retValue = array[Pfrente];
-		return retValue;
+		retValue = array[Pfrente];//guarda el elemento que se encuentra al frente de la cola
+		return retValue;//retorna dicho valor guardado
 	}else{
 		return NULL;
 	}
@@ -45,10 +45,10 @@ Object* ArrayQueue::quitaDeCola(){
 	if (!vacia())
 	{
 		Object* retValue;
-		retValue = array[Pfrente];
-		array[Pfrente] = NULL;
+		retValue = array[Pfrente];//guarda el elemento que se encuentra al frente de la cola
+		array[Pfrente] = NULL;//le asigna NULL al frente de la cola para determinar que el elemento ya no está
 		
-		Pfrente++;
+		Pfrente++;//el frente de la cola ahora se mueve una posición
 		return retValue;
 	}else{
 		return NULL;
@@ -60,7 +60,7 @@ void ArrayQueue::anula(){
 	
 	while (!vacia())
 	{
-		Object* temp = quitaDeCola();
+		Object* temp = quitaDeCola();//reutilizamos la función de quitaDeCola para ahorrar trabajo
 		delete temp;
 	}
 	Pfrente = final = 0;
@@ -68,12 +68,15 @@ void ArrayQueue::anula(){
 }
 
 bool ArrayQueue::vacia(){
-	return auxiliar == 0;
-	//Pfrente == final;
+	return auxiliar == 0;//retorna el valor comparado entre el auxiliar y 0
+	
 }
 
 void ArrayQueue::imprime(){
-	//iterar las casillas desde frente hasta final e imprimir en pantalla
+	/*
+	Caso 1: el frente de la cola se encuentra adelante del final de la cola
+	Caso 2: este es el caso normal,el frente de la cola se encuentra antes que el final
+	*/
 	int cont = 0;
 	cout<<endl;
 	if (Pfrente > final)	{

@@ -8,17 +8,17 @@ Node::Node()
 }
 
 void Node::setSiguiente(Node* next){
-	siguiente = next;
+	siguiente = next;//direcciona el apuntador siguiente al nodo next
 }
 	
 Node* Node::getSiguiente(){
-	return siguiente;
+	return siguiente;//retorna el nodo siguiente
 }
 void Node::setAnterior(Node* prev){
-	anterior=prev;
+	anterior=prev;//direcciona el apuntador anterior al nodo prev
 }
 Node* Node::getAnterior(){
-	return anterior;
+	return anterior;//retorna el nodo siguiente
 }
 
 void Node::setData(Object* pdata){
@@ -26,7 +26,7 @@ void Node::setData(Object* pdata){
 }
 
 Object* Node::getData(){
-	return data;
+	return data;//retorna el objeto del nodo
 }
 		
 

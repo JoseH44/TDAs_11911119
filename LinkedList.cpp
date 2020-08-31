@@ -9,19 +9,18 @@ LinkedList::LinkedList()
 
 Object* LinkedList::primero(){
 	if (inicio) //si inicio no es null
-		return inicio->getData();
+		return inicio->getData();//extrae la data del nodo inicio(siendo esta un objeto) y la devuelve
 	else 
 		return NULL;
 }
 
 void LinkedList::imprime(){
-	//hops = n - 1 
-	//declarar temp = inicio para iterar
-	// for i = 1 to hops
-		//print temp.data
-		//temp = temp.sig
+	
 
 	Node* temporal = inicio;
+	//el for nos ayuda a saber cuantos saltos va a dar nuestro nodo temporal 
+	//para imprimir todos los elementos
+
 	for (int i = 0; i < n; i++)	{
 		cout<<endl<<i+1<<")"<<endl<<temporal->getData()->toString()<<endl;
 		temporal = temporal->getSiguiente();
@@ -31,21 +30,11 @@ void LinkedList::imprime(){
 }
 
 int LinkedList::localiza(Object* x){
-	//hops = n - 1 
-	//declarar temp = inicio para iterar
-	// for i = 1 to hops
-		//if x == temp.data
-			//return i
-		//
-			//temp = temp.sig
-			
-	//return -1 --- el elemento no se encontr� en la lista
-
-	//BORRAR
+	
 	Node* temporal = inicio;
 	for (int i = 0; i < n; i++)	{
 		if (temporal->getData()->equals(x)){
-			return i + 1;
+			return i + 1;//si encuentra el elemento en la lista se devuelve la posición en la que se encuentra
 		}else{
 			temporal = temporal->getSiguiente();
 		}
@@ -56,7 +45,7 @@ int LinkedList::localiza(Object* x){
 
 }
 
-//si  libera en c++ el contenido de la memoria de los elementos de la lista
+//libera el contenido de la memoria de los elementos de la lista
 void LinkedList::anula(){
 	if(inicio){
 		delete inicio;
@@ -66,33 +55,23 @@ void LinkedList::anula(){
 }
 
 bool LinkedList::vacia(){
-	return n == 0; //inicio == NULL;
+	return n == 0; //retorna el valor comparado entre n y 0
 }
 
 Object* LinkedList::recupera(int p){
-	//validar el rango de p
-	//si p es v�lido
-		//hops = p - 1 
-		//declarar temp = inicio para iterar
-		// for i = 1 to hops
-			//temp = temp.sig
-		//return temp.data temp->getData()
-	//else
-		//return NULL;
-
-
-	//revisar 
+	
 
 	if (p>= 1 && p <= n){
 		
 		Node* temporal = inicio;
+		//el for es para moverse desde el primer nodo hasta el de la posición(p)
 		for (int i = 0; i < p-1; i++){
 			
 			temporal = temporal->getSiguiente();
 		}
 		Object* retValue;
 		retValue = temporal->getData();
-		//return temporal->getData();
+		
 		return retValue;
 
 	}else{
@@ -105,12 +84,12 @@ Object* LinkedList::recupera(int p){
 
 
 Object* LinkedList::siguiente(int p) {
-	//revisar
-		return recupera(p+1);	
-	}
+	
+	return recupera(p+1);//se reutiliza el metodo recupera para ahorrar el trabajo	
+}
 	
 Object* LinkedList::anterior(int p){
-	return recupera(p-1);
+	return recupera(p-1);//se reutiliza el metodo recupera para ahorrar el trabajo
 }
 
 
@@ -119,19 +98,20 @@ Object* LinkedList::suprime(int p){
 	if (p>=1 && p<=n){
 		Node* temporal;
 
+		//caso 1: que la posición ingresada sea la 1(el inicio)
 		if(p == 1){
 
-			temporal = inicio;
-			inicio = inicio->getSiguiente();
+			temporal = inicio;//el nodo temporal apunta al nodo inicio
+			inicio = inicio->getSiguiente();//el nodo inicio cambia de posición a la cual apunta
 			Object* retValue;
 			retValue = temporal->getData();
 			temporal->setAnterior(NULL);
 			temporal->setSiguiente(NULL);
-			//delete temporal;
+			
 			n--;
 			return retValue;
 
-		}else if(p == n){
+		}else if(p == n){//caso 2: que la posición ingresada sea la última
 			temporal = final;
 			
 			final = final->getAnterior();
@@ -146,8 +126,9 @@ Object* LinkedList::suprime(int p){
 
 			return retValue;
 
-		}else if(p > 1 || p < n){
+		}else if(p > 1 || p < n){//caso 3: que la posición ingresada esté en medio
 			temporal = inicio;
+			//for para movernos hasta la posición ingresada
 			for (int i = 0; i < p-1; i++){
 				temporal = temporal->getSiguiente();
 			}
@@ -158,7 +139,7 @@ Object* LinkedList::suprime(int p){
 			temporal->setAnterior(NULL);
 			temporal->setSiguiente(NULL);
 
-			//delete temporal;
+			
 			n--;
 			return retValue;
 
@@ -181,6 +162,7 @@ bool LinkedList::inserta(int p,Object* x){
     
     //Insertar cuando la lista esta vacia
     if(n == 0){        
+		//ambos nodos apuntan al nuevo nodo creado
         inicio = newNode;
         final = newNode;
     }else{
@@ -189,20 +171,21 @@ bool LinkedList::inserta(int p,Object* x){
             inicio->setAnterior(newNode);
             newNode->setSiguiente(inicio);
             inicio = newNode;                        
-        //insertar enmedio o al final    
+        //insertar en medio o al final    
         }else{
-            //nodo temporal para movilizarme            
-            Node* tempNode = inicio;                                                
+                     
+            Node* tempNode = inicio;
+			//for para movilizarme                                                   
             for(int i=0 ; i<p-1 ; i++)                
                 tempNode = tempNode->getSiguiente();                  
             
-            //cruce de referencias
+            //se hacen los enlaces necesarios
             newNode->setSiguiente(tempNode->getSiguiente());
             tempNode->setSiguiente(newNode);
             newNode->setAnterior(tempNode);
             
             //conectar siguiente nodo con mi nuevo nodo
-            //y asignar a nuevo final su respectivo nodo si es necesario
+            //asignar a nuevo final su respectivo nodo si es necesario
             if(p != n)
                 newNode->getSiguiente()->setAnterior(newNode);
             else
@@ -226,7 +209,7 @@ bool LinkedList::equals(Object* x){
 
 
 int LinkedList::getN(){
-	return n;
+	return n;//retorna el valor de n para saber cuantos elementos hay
 }
 
 

@@ -10,18 +10,27 @@
 class Alumno : public Object
 {
 private:
-    int num_cuenta;
-    string nombre;
+    int num_cuenta;//entero que representa el numero de cuenta
+    string nombre;//string que representa el nombre
 public:
-    Alumno();
-    Alumno(string, int);
+    Alumno();//constructor vacío
+
+    Alumno(string, int);//constructor sobrecargado
     
-    string getNombre();
+    string getNombre();//getter del nombre
     
-    int getCuenta();
-    virtual string toString();
-    virtual bool equals(Object *);
+    int getCuenta();//getter del numero de cuenta
+
+    virtual string toString();//metodo virtual toString para mostrar salida
+
+    virtual bool equals(Object *);//metodo virtual equals para comparar dos numeros de cuenta
+
     ~Alumno();
+
+    /*
+    En caso que se necesiten setters de los datos miembros,estos
+    pueden ser añadidos sin problema
+    */
 };
 
 #endif

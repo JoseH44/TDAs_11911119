@@ -245,7 +245,7 @@ int main()
 							int posBusqueda;
 							cout<<endl<<"Ingrese la Posicion:";
 							cin >> posBusqueda;
-							if(posBusqueda <1){
+							if(posBusqueda <=1){
 								cout<<endl<<"Posicion Invalida"<<endl;
 							}else{
 								if (alumno = Lista->anterior(posBusqueda)){
@@ -435,7 +435,7 @@ int main()
 							int posBusqueda;
 							cout<<endl<<"Ingrese la Posicion:";
 							cin >> posBusqueda;
-							if (posBusqueda < 1)
+							if (posBusqueda <= 1)
 							{
 								cout<<endl<<"Posicion No Valida"<<endl;
 							}else{
