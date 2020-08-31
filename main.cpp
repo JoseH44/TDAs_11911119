@@ -58,7 +58,7 @@ int main()
 		<< endl;
 	while (opcion != 4)
 	{
-		//A_cuenta = stoi(Pcuenta);
+		
 		
 		cout << endl
 			<< "--MENU PRINCIPAL--" << endl
@@ -125,14 +125,14 @@ int main()
 								cout << endl << "Ingrese el Nombre del Alumno:" ;
 								getline(cin,A_nombre);
 
-								//cin.ignore(1000,'\n');
+								
 								cout << endl << "Ingrese su Numero de Cuenta: ";
 								getline(cin,Pcuenta);
 								flag = validarNumero(Pcuenta);
 								while (flag != 0)
 								{
 									cout<<endl<<"Numero de Cuenta Invalido"<<endl;
-									//cin.ignore(1000,'\n');
+									
 									cout << endl << "Ingrese su Numero de Cuenta: ";
 									getline(cin,Pcuenta);
 									flag = validarNumero(Pcuenta);
@@ -320,7 +320,7 @@ int main()
 								while (flag != 0)
 								{
 									cout<<endl<<"Numero de Cuenta Invalido"<<endl;
-									//cin.ignore(1000,'\n');
+									
 									cout << endl << "Ingrese su Numero de Cuenta: ";
 									getline(cin,Pcuenta);
 									flag = validarNumero(Pcuenta);
@@ -718,7 +718,7 @@ int main()
 							flag = validarNumero(Pcuenta);
 							while (flag != 0){
 								cout<<endl<<"Numero de Cuenta Invalido"<<endl;
-								//cin.ignore(1000,'\n');
+								;
 								cout << endl << "Ingrese su Numero de Cuenta: ";
 								getline(cin,Pcuenta);
 								flag = validarNumero(Pcuenta);
@@ -812,7 +812,7 @@ int main()
 							flag = validarNumero(Pcuenta);
 							while (flag != 0){
 								cout<<endl<<"Numero de Cuenta Invalido"<<endl;
-								//cin.ignore(1000,'\n');
+								
 								cout << endl << "Ingrese su Numero de Cuenta: ";
 								getline(cin,Pcuenta);
 								flag = validarNumero(Pcuenta);
