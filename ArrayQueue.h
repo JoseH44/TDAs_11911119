@@ -25,7 +25,7 @@ class ArrayQueue : public TDAQueue
 		//metodo que vacía la pila,dejandola sin elementos
 		virtual void anula();
 
-		//metodo que imprime los elementos de la lista
+		//metodo que imprime los elementos de la cola
 		virtual void imprime();
 		
 		

@@ -10,6 +10,7 @@ bool Simbolo::equals(Object *otro)
     Simbolo *ref = dynamic_cast<Simbolo *>(otro);
     if (ref)
     {
+        //retorna el valor comparado entre el char de la clase y el char del objeto
         return simbolo == ref->getSimbolo();
     }
     else
@@ -19,7 +20,7 @@ bool Simbolo::equals(Object *otro)
 }
 
 char Simbolo::getSimbolo(){
-    return simbolo;
+    return simbolo;//retorna el caracter de simbolo
 }
 
 void Simbolo::setSimbolo(char pSimbolo){
