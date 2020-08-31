@@ -2,6 +2,7 @@
 using namespace std;
 
 #include <string>
+using std::string;
 
 #include <ctype.h>
 
@@ -50,12 +51,15 @@ int main()
 
 	
 	
-
+	
 	int opcion = 0;
+	
 	cout <<endl<< "-----BIENVENIDO-----" << endl
 		<< endl;
 	while (opcion != 4)
 	{
+		//A_cuenta = stoi(Pcuenta);
+		
 		cout << endl
 			<< "--MENU PRINCIPAL--" << endl
 			<< "1.Trabajar con Listas" << endl
