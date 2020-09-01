@@ -51,7 +51,8 @@ int main()
 
 	
 	
-	
+	string entrada;
+	int Gflag;
 	int opcion = 0;
 	
 	cout <<endl<< "-----BIENVENIDO-----" << endl
@@ -67,25 +68,68 @@ int main()
 			<< "3.Trabajar con Colas" << endl
 			<< "4.Salir" << endl
 			<< "Escoja una opcion: ";
-		cin >> opcion;
+		cin >> entrada;
+
+		Gflag = validarNumero(entrada);
+
+		//validación de entrada principal
+		while (Gflag != 0)
+		{
+			cout << endl<<"No Ha ingresado un Numero!"<<endl<<endl
+				<< "--MENU PRINCIPAL--" << endl
+				<< "1.Trabajar con Listas" << endl
+				<< "2.Trabajar con Pilas" << endl
+				<< "3.Trabajar con Colas" << endl
+				<< "4.Salir" << endl
+				<< "Escoja una opcion: ";
+			cin >> entrada;
+
+			Gflag = validarNumero(entrada);
+		}
+
+		opcion = stoi(entrada);//pasa el string a número
+		
+
 
 		switch (opcion)
 		{
 		case 1:
 		{
 			int opcionSub = 0;
-			cout << endl
-				<< "--MENU LISTAS--";
+			int flag_one;
+			string entrada1;
+			
 			while (opcionSub != 3)
 			{
-				cout << endl
+				cout << endl<< "--MENU LISTAS--"<<endl
 					<< "1.Trabajar con ArrayList"
 					<< endl
 					<< "2.Trabajar con Linked List" << endl
 					<< "3.Regresar al Menu Principal"
 					<< endl
 					<< "Escoja una opcion: ";
-				cin >> opcionSub;
+				cin >> entrada1;
+
+				flag_one = validarNumero(entrada1);
+				//validación de entrada de la opción 1
+				while (flag_one != 0)
+				{
+					cout << endl<<"No ha Ingresado un Numero!"<<endl<<endl
+						<< "--MENU LISTAS--"<<endl
+						<< "1.Trabajar con ArrayList"
+						<< endl
+						<< "2.Trabajar con Linked List" << endl
+						<< "3.Regresar al Menu Principal"
+						<< endl
+						<< "Escoja una opcion: ";
+					cin >> entrada1;
+
+					flag_one = validarNumero(entrada1);
+				}
+
+				opcionSub = stoi(entrada1);
+				
+
 				switch (opcionSub)
 				{
 				case 1:
@@ -97,6 +141,9 @@ int main()
 					int flag;
 					int A_cuenta;
 
+					//variables para validar entrada
+					string vEntrada;
+					int lFlag;
 					 
 					while (opcionSub1 != 10)
 					{
@@ -113,46 +160,128 @@ int main()
 							<< "9.Borrar Todos los Elementos" << endl
 							<< "10.Regresar al Menu" << endl
 							<< "Escoja una opcion: ";
-						cin >> opcionSub1;
+						cin >> vEntrada;
+
+						lFlag = validarNumero(vEntrada);
+
+						//while de validación para la entrada
+						while (lFlag != 0)
+						{
+							cout<<endl<<"No Ha Ingresado un Numero!"<<endl
+								<< endl
+						 		<< "--OPERACIONES DE LISTA--"<< endl
+								<< "1.Insertar Elemento" << endl
+								<< "2.Imprimir Elementos" << endl
+								<< "3.Buscar Elemento" << endl
+								<< "4.Borrar Elemento" << endl
+								<< "5.Ver si esta Vacia " << endl
+								<< "6.Obtener Elemento por Posicion" << endl
+								<< "7.Obtener Siguiente" << endl
+								<< "8.Obtener Anterior" << endl
+								<< "9.Borrar Todos los Elementos" << endl
+								<< "10.Regresar al Menu" << endl
+								<< "Escoja una opcion: ";
+							cin >> vEntrada;
+
+							lFlag = validarNumero(vEntrada);
+						}
+						
+
+						opcionSub1 = stoi(vEntrada);
+
 						switch (opcionSub1)
 						{
 						case 1:
 						{
+							
 							int respuesta = -1;
+							//variables para validar
+							string posEntrada,resEntrada;
+							int pFlag,rFlag;
+
 							while (respuesta != 0)
 							{
 								cin.ignore(1000,'\n');
 								cout << endl << "Ingrese el Nombre del Alumno:" ;
 								getline(cin,A_nombre);
 
-								
+								/*
+								Bloque para validar la entrada de la posición
+								*/
 								cout << endl << "Ingrese su Numero de Cuenta: ";
 								getline(cin,Pcuenta);
 								flag = validarNumero(Pcuenta);
+
+								//validar el numero de cuenta
 								while (flag != 0)
 								{
-									cout<<endl<<"Numero de Cuenta Invalido"<<endl;
+									cout<<endl<<"Numero de Cuenta Invalido!"<<endl;
 									
-									cout << endl << "Ingrese su Numero de Cuenta: ";
+									cout << endl << "Ingrese Nuevamente el Numero de Cuenta: ";
 									getline(cin,Pcuenta);
 									flag = validarNumero(Pcuenta);
 								}
 								
 								A_cuenta = stoi(Pcuenta);
 
+								/*
+								Bloque para validar la entrada de la posición
+								*/
+
 								cout << endl << "Ingrese la Posicion en la que se Guardara: ";
-								cin >> posicion;
+								cin >> posEntrada;
 
-								if (Lista->inserta(posicion,new Alumno(A_nombre,A_cuenta)))
+
+								pFlag = validarNumero(posEntrada);
+
+								//validar la posición
+								while (pFlag != 0)
 								{
-									cout<<endl<<"El Alumno fue Insertado Exitosamente!"<<endl;
-								}else{
-									cout<<endl<<"El Alumno no Fue Insertado"<<endl;
-								}
-								
+									cout<<endl<<"No Ha Ingresado un Numero!"<<endl
+										<<endl<<"Ingrese Nuevamente la Posicion:";
 
+									cin>>posEntrada;
+
+									pFlag = validarNumero(posEntrada);
+								}
+
+								posicion = stoi(posEntrada);
+								
+								//validación para que la posición sea mayor que 0
+								if(posicion < 1){
+									cout<<endl<<endl<<"La Lista Empieza en la Posicion 1"
+										<<endl;
+								}else{
+									if (Lista->inserta(posicion,new Alumno(A_nombre,A_cuenta))){
+										cout<<endl<<"El Alumno fue Insertado Exitosamente!"<<endl;
+									}else{
+										cout<<endl<<"El Alumno no Fue Insertado"<<endl;
+									}
+								}
+
+								
+								
+								/*
+								Bloque para validar la entrada de la respuesta
+								*/
 								cout << endl << "Desea Introducir Otro Elemento[1/0]: ";
-								cin >> respuesta;
+								cin >> resEntrada;
+
+								rFlag = validarNumero(resEntrada);
+
+								//while para validar la respuesta
+								while (rFlag != 0)
+								{
+									cout<<endl<<"No Ha Ingresado un Numero!"<<endl
+										<<endl<<"Ingrese Nuevamente la Respuesta-->"
+										<<endl<<"Desea Introducir Otro Elemento[1/0]: ";
+									cin >> resEntrada;
+
+									rFlag = validarNumero(resEntrada);
+								}
+
+								respuesta = stoi(resEntrada);
+								
 
 							}
 							
@@ -166,9 +295,28 @@ int main()
 						}
 						case 3:
 						{
-							int pos,cuenta_ref;
+							//variables
+							string entrada_validar;
+							int pos,cuenta_ref,cFlag;
+							
 							cout<<endl<<"Ingrese el Numero de Cuenta:";
-							cin >> cuenta_ref;
+							cin >> entrada_validar;
+
+							cFlag = validarNumero(entrada_validar);
+
+							//validar la entrada de
+							while (cFlag != 0)
+							{
+								cout<<endl<<"Numero de Cuenta Invalido!"<<endl;
+									
+								cout << endl << "Ingrese Nuevamente el Numero de Cuenta: ";
+								cin >> entrada_validar;
+								cFlag = validarNumero(entrada_validar);
+							}
+
+							cuenta_ref = stoi(entrada_validar);
+								
+
 							alumno = new Alumno(" ",cuenta_ref);
 							pos = Lista->localiza(alumno);
 							
@@ -185,15 +333,43 @@ int main()
 						case 4:
 						{
 							int posBusqueda;
+							//varaibles para validar
+							string posEntrada;
+							int pFlag;
+
+							/*
+							Bloque para validar la posición a eliminar
+							*/
 							cout<<endl<<"Ingrese la Posicion a Eliminar:";
-							cin >> posBusqueda;
-							if (alumno = Lista->suprime(posBusqueda))
+							cin >> posEntrada;
+
+							pFlag = validarNumero(posEntrada);
+
+							while (pFlag != 0)
 							{
-								cout <<endl<<"El Alumno fue Eliminado Exitosamente!"
-									<<endl<<"Alumno Eliminado:" <<endl<<alumno->toString();
-							}else{
-								cout <<endl<<"El Alumno no fue Eliminado";
+								cout<<endl<<"No Ha Ingresado un Numero!"<<endl
+									<<endl<<"Ingrese la Posicion Nuevamente:";
+								
+								cin >> posEntrada;
+
+								pFlag = validarNumero(posEntrada);
 							}
+
+							posBusqueda = stoi(posEntrada);
+
+							if(posBusqueda < 1){
+								cout<<endl<<endl<<"La Lista Empieza en la Posicion 1"
+									<<endl;
+							}else{
+								if (alumno = Lista->suprime(posBusqueda)){
+									cout <<endl<<"El Alumno fue Eliminado Exitosamente!"
+										<<endl<<"Alumno Eliminado:" <<endl<<alumno->toString();
+								}else{
+									cout <<endl<<"El Alumno no fue Eliminado";
+								}
+
+							}
+							
 							
 							break;
 						}
@@ -212,24 +388,68 @@ int main()
 						case 6:
 						{
 							int posBusqueda;
+							//varaibles para validar
+							string posEntrada;
+							int pFlag;
+
 							cout<<endl<<"Ingrese la Posicion a Obtener:";
-							cin >> posBusqueda;
-							if (alumno = Lista->recupera(posBusqueda))
+							cin >> posEntrada;
+							pFlag = validarNumero(posEntrada);
+
+							//while para validar la posición a buscar
+							while (pFlag != 0)
 							{
-								cout<<endl<<"Alumno Recuperado:"<<endl
-								  	<<alumno->toString()<<endl;
+								cout << endl << "No Ha Ingresado un Numero!" << endl
+									<< endl << "Ingrese la Posicion Nuevamente:";
 								
-							}else{
-								cout<<endl<<"Posicion no Valida"<<endl;
+								cin >> posEntrada;
+								pFlag = validarNumero(posEntrada);
+
 							}
+
+							posBusqueda = stoi(posEntrada);
+
+							if(posBusqueda < 1){
+								cout << endl << "La Lista Empieza en la Posicion 1"
+									<<endl;
+							}else{
+								if (alumno = Lista->recupera(posBusqueda)){
+									cout<<endl<<"Alumno Recuperado:"<<endl
+								  		<<alumno->toString()<<endl;
+								
+								}else{
+									cout<<endl<<"Posicion no Valida"<<endl;
+								}
+							}
+							
+
+							
 							
 							break;
 						}
 						case 7:
 						{
 							int posBusqueda;
+							//varaibles para validar
+							string posEntrada;
+							int pFlag;
+
 							cout<<endl<<"Ingrese la Posicion:";
-							cin >> posBusqueda;
+							cin >> posEntrada;
+
+							pFlag = validarNumero(posEntrada);
+							while (pFlag != 0)
+							{
+								cout << endl << "No Ha Ingresado un Numero!" << endl
+									<< endl << "Ingrese la Posicion Nuevamente:";
+								
+								cin >> posEntrada;
+								pFlag = validarNumero(posEntrada);
+							}
+
+							posBusqueda = stoi(posEntrada);
+							
+
 							if(posBusqueda < 1){
 								cout<<endl<<"Posicion Invalida"<<endl;
 							}else{
@@ -247,8 +467,25 @@ int main()
 						case 8:
 						{
 							int posBusqueda;
+							//varaibles para validar
+							string posEntrada;
+							int pFlag;
+
 							cout<<endl<<"Ingrese la Posicion:";
-							cin >> posBusqueda;
+							cin >> posEntrada;
+
+							pFlag = validarNumero(posEntrada);
+							while (pFlag != 0)
+							{
+								cout << endl << "No Ha Ingresado un Numero!" << endl
+									<< endl << "Ingrese la Posicion Nuevamente:";
+								
+								cin >> posEntrada;
+								pFlag = validarNumero(posEntrada);
+							}
+
+							posBusqueda = stoi(posEntrada);
+
 							if(posBusqueda <=1){
 								cout<<endl<<"Posicion Invalida"<<endl;
 							}else{
@@ -285,7 +522,10 @@ int main()
 					string A_nombre,Pcuenta;
 
 					int A_cuenta,flag;
-
+					
+					//variables para validar entrada
+					string vEntrada;
+					int lFlag;
 					 
 					while (opcionSub1 != 10)
 					{
@@ -302,12 +542,45 @@ int main()
 							<< "9.Borrar Todos los Elementos" << endl
 							<< "10.Regresar al Menu" << endl
 							<< "Escoja una opcion: ";
-						cin >> opcionSub1;
+						cin >> vEntrada;
+
+
+						lFlag = validarNumero(vEntrada);
+
+						//while de validación para la entrada
+						while (lFlag != 0)
+						{
+							cout<<endl<<"No Ha Ingresado un Numero!"<<endl
+								<< endl
+						 		<< "--OPERACIONES DE LISTA--"<< endl
+								<< "1.Insertar Elemento" << endl
+								<< "2.Imprimir Elementos" << endl
+								<< "3.Buscar Elemento" << endl
+								<< "4.Borrar Elemento" << endl
+								<< "5.Ver si esta Vacia " << endl
+								<< "6.Obtener Elemento por Posicion" << endl
+								<< "7.Obtener Siguiente" << endl
+								<< "8.Obtener Anterior" << endl
+								<< "9.Borrar Todos los Elementos" << endl
+								<< "10.Regresar al Menu" << endl
+								<< "Escoja una opcion: ";
+							cin >> vEntrada;
+
+							lFlag = validarNumero(vEntrada);
+						}
+						
+
+						opcionSub1 = stoi(vEntrada);
+
 						switch (opcionSub1)
 						{
 						case 1:
 						{
 							int respuesta = -1;
+							//variables para validar
+							string posEntrada,resEntrada;
+							int pFlag,rFlag;
+
 							while (respuesta != 0)
 							{
 								cin.ignore(1000,'\n');
@@ -327,19 +600,63 @@ int main()
 								}
 								
 								A_cuenta = stoi(Pcuenta);
+
+								/*
+								Bloque para validar la entrada de la posición
+								*/
+
 								cout << endl << "Ingrese la Posicion en la que se Guardara: ";
-								cin >> posicion;
+								cin >> posEntrada;
 
-								if (Lista->inserta(posicion,new Alumno(A_nombre,A_cuenta)))
+
+								pFlag = validarNumero(posEntrada);
+
+								//validar la posición
+								while (pFlag != 0)
 								{
-									cout<<endl<<"El Alumno fue Insertado Exitosamente!"<<endl;
-								}else{
-									cout<<endl<<"El Alumno no Fue Insertado"<<endl;
-								}
-								
+									cout<<endl<<"No Ha Ingresado un Numero!"<<endl
+										<<endl<<"Ingrese Nuevamente la Posicion:";
 
+									cin>>posEntrada;
+
+									pFlag = validarNumero(posEntrada);
+								}
+
+								posicion = stoi(posEntrada);
+
+								//validación para que la posición sea mayor que 0
+								if(posicion < 1){
+									cout<<endl<<endl<<"La Lista Empieza en la Posicion 1"
+										<<endl;
+								}else{
+									if (Lista->inserta(posicion,new Alumno(A_nombre,A_cuenta))){
+										cout<<endl<<"El Alumno fue Insertado Exitosamente!"<<endl;
+									}else{
+										cout<<endl<<"El Alumno no Fue Insertado"<<endl;
+									}
+								}
+
+								
+								/*
+								Bloque para validar la entrada de la respuesta
+								*/
 								cout << endl << "Desea Introducir Otro Elemento[1/0]: ";
-								cin >> respuesta;
+								cin >> resEntrada;
+
+								rFlag = validarNumero(resEntrada);
+
+								//while para validar la respuesta
+								while (rFlag != 0)
+								{
+									cout<<endl<<"No Ha Ingresado un Numero!"<<endl
+										<<endl<<"Ingrese Nuevamente la Respuesta-->"
+										<<endl<<"Desea Introducir Otro Elemento[1/0]: ";
+									cin >> resEntrada;
+
+									rFlag = validarNumero(resEntrada);
+								}
+
+								respuesta = stoi(resEntrada);
 
 							}
 							
@@ -353,9 +670,27 @@ int main()
 						}
 						case 3:
 						{
-							int pos,cuenta_ref;
+							int pos,cuenta_ref,cFlag;
+							string entrada_validar;
+							
 							cout<<endl<<"Ingrese el Numero de Cuenta:";
-							cin >> cuenta_ref;
+							cin >> entrada_validar;
+
+							cFlag = validarNumero(entrada_validar);
+
+							//validar la entrada de
+							while (cFlag != 0)
+							{
+								cout<<endl<<"Numero de Cuenta Invalido!"<<endl;
+									
+								cout << endl << "Ingrese Nuevamente el Numero de Cuenta: ";
+								cin >> entrada_validar;
+								cFlag = validarNumero(entrada_validar);
+							}
+
+							cuenta_ref = stoi(entrada_validar);
+
+
 							alumno = new Alumno(" ",cuenta_ref);
 							pos = Lista->localiza(alumno);
 							
@@ -372,14 +707,42 @@ int main()
 						case 4:
 						{
 							int posBusqueda;
+							//varaibles para validar
+							string posEntrada;
+							int pFlag;
+
+
+							/*
+							Bloque para validar la posición a eliminar
+							*/
 							cout<<endl<<"Ingrese la Posicion a Eliminar:";
-							cin >> posBusqueda;
-							if (alumno = Lista->suprime(posBusqueda))
+							cin >> posEntrada;
+
+							pFlag = validarNumero(posEntrada);
+
+							while (pFlag != 0)
 							{
-								cout <<endl<<"El Alumno fue Eliminado Exitosamente!"
-									<<endl<<"Alumno Eliminado:" <<endl<<alumno->toString();
+								cout<<endl<<"No Ha Ingresado un Numero!"<<endl
+									<<endl<<"Ingrese la Posicion Nuevamente:";
+								
+								cin >> posEntrada;
+
+								pFlag = validarNumero(posEntrada);
+							}
+
+							posBusqueda = stoi(posEntrada);
+
+							if(posBusqueda < 1){
+								cout<<endl<<endl<<"La Lista Empieza en la Posicion 1"
+									<<endl;
 							}else{
-								cout <<endl<<"El Alumno no fue Eliminado";
+								if (alumno = Lista->suprime(posBusqueda)){
+									cout <<endl<<"El Alumno fue Eliminado Exitosamente!"
+										<<endl<<"Alumno Eliminado:" <<endl<<alumno->toString();
+								}else{
+									cout <<endl<<"El Alumno no fue Eliminado";
+								}
+
 							}
 							
 							break;
@@ -398,17 +761,43 @@ int main()
 						}
 						case 6:
 						{
+						
 							int posBusqueda;
+							//varaibles para validar
+							string posEntrada;
+							int pFlag;
+
 							cout<<endl<<"Ingrese la Posicion a Obtener:";
-							cin >> posBusqueda;
-							if (alumno = Lista->recupera(posBusqueda))
+							cin >> posEntrada;
+							pFlag = validarNumero(posEntrada);
+
+							//while para validar la posición a buscar
+							while (pFlag != 0)
 							{
-								cout<<endl<<"Alumno Recuperado:"<<endl
-								  	<<alumno->toString()<<endl;
+								cout << endl << "No Ha Ingresado un Numero!" << endl
+									<< endl << "Ingrese la Posicion Nuevamente:";
 								
-							}else{
-								cout<<endl<<"Posicion no Valida"<<endl;
+								cin >> posEntrada;
+								pFlag = validarNumero(posEntrada);
+
 							}
+
+							posBusqueda = stoi(posEntrada);
+
+							if(posBusqueda < 1){
+								cout << endl << "La Lista Empieza en la Posicion 1"
+									<<endl;
+							}else{
+								if (alumno = Lista->recupera(posBusqueda)){
+									cout<<endl<<"Alumno Recuperado:"<<endl
+								  		<<alumno->toString()<<endl;
+								
+								}else{
+									cout<<endl<<"Posicion no Valida"<<endl;
+								}
+							}
+
+
 							
 							break;
 						}
