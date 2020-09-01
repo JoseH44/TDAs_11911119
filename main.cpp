@@ -803,19 +803,37 @@ int main()
 						}
 						case 7:
 						{
+							
+
 							int posBusqueda;
+							//varaibles para validar
+							string posEntrada;
+							int pFlag;
+
 							cout<<endl<<"Ingrese la Posicion:";
-							cin >> posBusqueda;
-							if (posBusqueda < 1)
+							cin >> posEntrada;
+
+							pFlag = validarNumero(posEntrada);
+							while (pFlag != 0)
 							{
-								cout<<endl<<"La Lista Empieza en el Numero 1"<<endl;
+								cout << endl << "No Ha Ingresado un Numero!" << endl
+									<< endl << "Ingrese la Posicion Nuevamente:";
+								
+								cin >> posEntrada;
+								pFlag = validarNumero(posEntrada);
+							}
+
+							posBusqueda = stoi(posEntrada);
+							
+
+							if(posBusqueda < 1){
+								cout<<endl<<"Posicion Invalida"<<endl;
 							}else{
-								if (alumno = Lista->siguiente(posBusqueda))
-								{
+								if (alumno = Lista->siguiente(posBusqueda)){
 									cout<<endl<<"Alumno en la Posicion Siguiente:"<<endl
 								  		<<alumno->toString()<<endl;
 								}else{
-								cout<<endl<<"La Siguiente Posicion Esta Vacia"<<endl;
+									cout<<endl<<"La Siguiente Posicion Esta Vacia"<<endl;
 								}
 							}
 							
@@ -825,21 +843,39 @@ int main()
 						}
 						case 8:
 						{
+							
+
 							int posBusqueda;
+							//varaibles para validar
+							string posEntrada;
+							int pFlag;
+
 							cout<<endl<<"Ingrese la Posicion:";
-							cin >> posBusqueda;
-							if (posBusqueda <= 1)
+							cin >> posEntrada;
+
+							pFlag = validarNumero(posEntrada);
+							while (pFlag != 0)
 							{
-								cout<<endl<<"Posicion No Valida"<<endl;
+								cout << endl << "No Ha Ingresado un Numero!" << endl
+									<< endl << "Ingrese la Posicion Nuevamente:";
+								
+								cin >> posEntrada;
+								pFlag = validarNumero(posEntrada);
+							}
+
+							posBusqueda = stoi(posEntrada);
+
+							if(posBusqueda <=1){
+								cout<<endl<<"Posicion Invalida"<<endl;
 							}else{
-								if (alumno = Lista->anterior(posBusqueda))
-								{
+								if (alumno = Lista->anterior(posBusqueda)){
 									cout<<endl<<"Alumno en la Posicion Anterior:"<<endl
 								  		<<alumno->toString()<<endl;
 								}else{
 									cout<<endl<<"La Posicion Anterior Esta Vacia"<<endl;
 								}
 							}
+							
 							
 							
 							break;
@@ -867,7 +903,10 @@ int main()
 		}
 		case 2:
 		{
-			int opcionSub = 0; 
+			int opcionSub = 0;
+			//variables para validar
+			int flag_two;
+			string entrada2;
 			while (opcionSub != 3)
 			{
 				cout << endl
@@ -879,7 +918,30 @@ int main()
 					<< "3.Regresar al Menu Principal"
 					<< endl
 					<< "Escoja una opcion: ";
-				cin >> opcionSub;
+				cin >> entrada2;
+				/*
+				Bloque para validar la entrada del menu de pilas
+				*/
+				flag_two = validarNumero(entrada2);
+				while (flag_two != 0)
+				{
+					cout<<endl<<endl<<"No ha Ingresado un Numero!"<<endl
+						<<endl<< "--MENU PILAS--"<< endl
+						<< "1.Trabajar con ArrayStack"
+						<< endl
+						<< "2.Trabajar con LinkedStacked"
+						<< endl
+						<< "3.Regresar al Menu Principal"
+						<< endl
+						<< "Escoja una opcion: ";
+					cin >> entrada2;
+				
+					flag_two = validarNumero(entrada2);
+				}
+
+				opcionSub = stoi(entrada2);
+				
+
 				switch (opcionSub)
 				{
 				case 1:
@@ -887,6 +949,10 @@ int main()
 					Pila = new ArrayStack();
 					int opcionSub1 = 0;
 					string pChar;
+					//variables para validar
+					string sEntrada;
+					int sFlag;
+
 					while (opcionSub1 != 6)
 					{
 						cout<<endl<<endl<<"--OPERACIONES DE PILA--"<<endl
@@ -894,7 +960,27 @@ int main()
 							<<endl<<"3.Ver Tope(Top)"<<endl<<"4.Verificar si esta vacia"
 							<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
 							<<endl<<"Escoja una opcion: ";
-						cin >> opcionSub1;
+						cin >> sEntrada;
+
+						//bloque para validar la entrada del menu de pilas
+						sFlag = validarNumero(sEntrada);
+						while (sFlag)
+						{
+							cout<<endl<<endl<<"No Ha Ingresado un Numero!"<<endl
+								<<endl<<"--OPERACIONES DE PILA--"<<endl
+								<<"1.Empujar(Push)"<<endl<<"2.Sacar(Pop)"
+								<<endl<<"3.Ver Tope(Top)"<<endl<<"4.Verificar si esta vacia"
+								<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
+								<<endl<<"Escoja una opcion: ";
+							cin >> sEntrada;
+
+						
+							sFlag = validarNumero(sEntrada);
+							
+						}
+
+						opcionSub1 = stoi(sEntrada);
+						
 						switch (opcionSub1)
 						{
 						case 1:{
@@ -973,6 +1059,10 @@ int main()
 					Pila = new LnkedStack();
 					int opcionSub1 = 0;
 					string pChar;
+					//variables para validar
+					string sEntrada;
+					int sFlag;
+
 					while (opcionSub1 != 6)
 					{
 						cout<<endl<<endl<<"--OPERACIONES DE PILA--"<<endl
@@ -980,7 +1070,26 @@ int main()
 							<<endl<<"3.Ver Tope(Top)"<<endl<<"4.Verificar si esta vacia"
 							<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
 							<<endl<<"Escoja una opcion: ";
-						cin >> opcionSub1;
+						cin >> sEntrada;
+						//bloque para validar la entrada del menu de pilas
+						sFlag = validarNumero(sEntrada);
+						while (sFlag)
+						{
+							cout<<endl<<endl<<"No Ha Ingresado un Numero!"<<endl
+								<<endl<<"--OPERACIONES DE PILA--"<<endl
+								<<"1.Empujar(Push)"<<endl<<"2.Sacar(Pop)"
+								<<endl<<"3.Ver Tope(Top)"<<endl<<"4.Verificar si esta vacia"
+								<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
+								<<endl<<"Escoja una opcion: ";
+							cin >> sEntrada;
+
+						
+							sFlag = validarNumero(sEntrada);
+							
+						}
+
+						opcionSub1 = stoi(sEntrada);
+
 						switch (opcionSub1)
 						{
 						case 1:{
@@ -1065,7 +1174,10 @@ int main()
 		case 3:
 		{
 			int opcionSub = 0;
-			cout ;
+			//variables para validar
+			int flag_three;
+			string entrada3;
+
 			while (opcionSub != 3)
 			{
 				cout << endl
@@ -1078,7 +1190,30 @@ int main()
 					<< "3.Regresar al Menu Principal"
 					<< endl
 					<< "Escoja una opcion: ";
-				cin >> opcionSub;
+				cin >> entrada3;
+
+				flag_three = validarNumero(entrada3);
+
+				while (flag_three != 0)
+				{
+					cout<<endl<<endl<<"No Ha Ingresado un Numero!"<<endl
+						<<endl<<"--MENU COLAS--"
+						<<endl
+						<< "1.Trabajar con ArrayQueue"
+						<< endl
+						<< "2.Trabajar con LinkedQueue"
+						<< endl
+						<< "3.Regresar al Menu Principal"
+						<< endl
+						<< "Escoja una opcion: ";
+					cin >> entrada3;
+
+					flag_three = validarNumero(entrada3);
+				}
+
+				opcionSub = stoi(entrada3);
+				
+
 				switch (opcionSub)
 				{
 				case 1:
@@ -1087,6 +1222,11 @@ int main()
 					int A_cuenta,flag;
 					int opcionSub1 = 0;
 					Cola = new ArrayQueue();
+
+					//variables para validar
+					string cEntrada;
+					int c_Flag;
+
 					while (opcionSub1 != 6)
 					{
 						cout<<endl<<"--OPERACIONES DE COLAS--"<<endl
@@ -1094,7 +1234,24 @@ int main()
 							<<endl<<"3.Ver Tope(Peek) "<<endl<<"4.Verificar si esta vacia"
 							<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
 							<<endl<<"Escoja una opcion: ";
-						cin >> opcionSub1;
+						cin >> cEntrada;
+
+						c_Flag = validarNumero(cEntrada);
+						while (c_Flag != 0)
+						{
+							cout<<endl<<endl<<"No ha Ingresado un Numero!"<<endl
+								<<endl<<"--OPERACIONES DE COLAS--"<<endl
+								<<"1.Encolar(Queue) "<<endl<<"2.Desencolar(Dequeue) "
+								<<endl<<"3.Ver Tope(Peek) "<<endl<<"4.Verificar si esta vacia"
+								<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
+								<<endl<<"Escoja una opcion: ";
+							cin >> cEntrada;
+
+							c_Flag = validarNumero(cEntrada);
+						}
+
+						opcionSub1 = stoi(cEntrada);
+
 						switch (opcionSub1)
 						{
 						case 1:{
@@ -1181,6 +1338,11 @@ int main()
 					int A_cuenta,flag;
 					int opcionSub1 = 0;
 					Cola = new LinkedQueue();
+
+					//variables para validar
+					string cEntrada;
+					int c_Flag;
+
 					while (opcionSub1 != 6)
 					{
 						cout<<endl<<"--OPERACIONES DE COLAS--"<<endl
@@ -1188,7 +1350,24 @@ int main()
 							<<endl<<"3.Ver Tope(Peek) "<<endl<<"4.Verificar si esta vacia"
 							<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
 							<<endl<<"Escoja una opcion: ";
-						cin >> opcionSub1;
+						cin >> cEntrada;
+
+						c_Flag = validarNumero(cEntrada);
+						while (c_Flag != 0)
+						{
+							cout<<endl<<endl<<"No ha Ingresado un Numero!"<<endl
+								<<endl<<"--OPERACIONES DE COLAS--"<<endl
+								<<"1.Encolar(Queue) "<<endl<<"2.Desencolar(Dequeue) "
+								<<endl<<"3.Ver Tope(Peek) "<<endl<<"4.Verificar si esta vacia"
+								<<endl<<"5.Imprimir elementos"<<endl<<"6.Regresar al Menu"
+								<<endl<<"Escoja una opcion: ";
+							cin >> cEntrada;
+
+							c_Flag = validarNumero(cEntrada);
+						}
+
+						opcionSub1 = stoi(cEntrada);
+						
 						switch (opcionSub1)
 						{
 						case 1:{
